@@ -1,0 +1,25 @@
+const {app,BrowserWindow,ipcMain}=require('electron');
+const path=require('node:path');
+app.whenReady().then(async()=>{
+ await require('./desktop-fixtures.cjs').registerProjectServices();
+ ipcMain.handle('library',()=>[]);
+ ipcMain.handle('local-ai-key-status',()=>({configured:false}));
+ ipcMain.handle('local-ai-discover',()=>({settings:{url:'http://127.0.0.1:11535',models:{editing:'test-trained'}},models:[{name:'test-trained',size:2e9,capabilities:['completion','vision']}],hardware:{gpus:[],ramAvailable:8e9,diskAvailable:30e9}}));
+ const win=new BrowserWindow({show:false,webPreferences:{preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true}});
+ const errors=[];win.webContents.on('console-message',(_e,...args)=>{const message=args[1];if(typeof message==='string'&&message.includes('Uncaught'))errors.push(message);});
+ await win.loadFile(path.join(__dirname,'../dist/index.html'));
+ await require('./desktop-fixtures.cjs').navigateWorkbench(win,'AI Models');
+ await win.webContents.executeJavaScript(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(document.querySelector('select[aria-label="editing model"]')?.value==='test-trained'){clearInterval(timer);resolve();}else if(++n>40){clearInterval(timer);reject(Error('AI model settings failed to load'));}},100);})`);
+ const models=await win.webContents.executeJavaScript(`({provider:!!document.querySelector('[aria-label="Model provider"]'),installer:document.body.innerText.includes('Install / verify model'),bridge:typeof window.localAI.install})`);
+ if(!models.provider||!models.installer||models.bridge!=='function')throw Error('AI model controls missing');
+ await win.webContents.executeJavaScript(`const select=document.querySelector('[aria-label="Model provider"]');Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value').set.call(select,'hosted');select.dispatchEvent(new Event('change',{bubbles:true}));`);
+ await win.webContents.executeJavaScript(`new Promise(resolve=>setTimeout(resolve,100))`);
+ if(!await win.webContents.executeJavaScript(`document.body.innerText.includes('Save encrypted API key')`))throw Error('Hosted configuration missing');
+ await require('./desktop-fixtures.cjs').navigateWorkbench(win,'Fortnite Assets');
+ await win.webContents.executeJavaScript(`new Promise(resolve=>setTimeout(resolve,100))`);
+ const fortnite=await win.webContents.executeJavaScript(`({text:document.body.innerText,bridge:typeof window.fortnite.importFiles})`);
+ if(!fortnite.text.includes('Open Fortnite Wiki')||!fortnite.text.includes('Import downloaded Fortnite assets')||fortnite.bridge!=='function')throw Error('Fortnite library missing');
+ if(errors.length)throw Error(errors.join('\n'));
+ console.log('Desktop local/hosted model controls and Fortnite library verified');
+ win.destroy();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});

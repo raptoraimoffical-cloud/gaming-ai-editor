@@ -1,0 +1,93 @@
+# Regression input from the user's current Eric Rios brief
+
+Create a competitive Pokémon Champions Short using the original 1012 (1).MP3 recording. The narration is final. Do not rewrite, shorten, expand, replace or duplicate the recording. Preserve caption appearance.
+
+Reveal a verified photo of Eric Rios when his name is first spoken. Use only imagery correctly identified as Eric. Do not substitute unrelated players or present an old photograph as footage of his 2026 victory. Show the photo clearly for about four seconds. This is the player, not the Pokémon logo.
+
+Show the full team when I say "this is the exact team he used". All six cards must be visible simultaneously at the pause-to-copy build frame. Hold the complete build through the spoken pause line and the quiet gap afterward. Do not obscure the build with karaoke subtitles during this hold. Display correct artwork, forms, items, abilities, natures, four moves, Stat Point distributions and Level 50. Create a separate full-resolution PNG export of the build overlay for reuse.
+
+All Pokémon are Level 50. Pokémon Champions uses Stat Points; label them "SP". These supplied distributions are the community replica. Do not invent additional spreads or claim unverified in-game stats.
+
+**GHOLDENGO**
+Held Item: Life Orb
+Ability: Good as Gold
+Nature / Stat Alignment: Modest
+Stat Points:
+17 HP / 7 SpA / 22 SpD / 20 Spe
+Moves:
+- Protect
+- Shadow Ball
+- Nasty Plot
+- Make It Rain
+
+**VOLCARONA**
+Held Item: Rocky Helmet
+Ability: Flame Body
+Nature / Stat Alignment: Timid
+Stat Points:
+13 HP / 30 Def / 23 Spe
+Moves:
+- Overheat
+- Struggle Bug
+- Rage Powder
+- Tailwind
+
+**GARCHOMP — MEGA Z**
+Held Item: Garchompite Z
+Base Ability: Rough Skin
+Mega Ability: Levitate
+Nature / Stat Alignment: Modest
+Stat Points:
+4 Def / 30 SpA / 32 Spe
+Moves:
+- Dragon Pulse
+- Earth Power
+- Power Gem
+- Protect
+Use actual Mega Garchomp Z artwork.
+
+**INCINEROAR**
+Held Item: Sitrus Berry
+Ability: Intimidate
+Nature / Stat Alignment: Impish
+Stat Points:
+30 HP / 20 Def / 14 SpD / 2 Spe
+Moves:
+- Parting Shot
+- Fake Out
+- Flare Blitz
+- Darkest Lariat
+
+**RILLABOOM**
+Held Item: Miracle Seed
+Ability: Grassy Surge
+Nature / Stat Alignment: Adamant
+Stat Points:
+26 HP / 30 Atk / 1 Def / 4 SpD / 5 Spe
+Moves:
+- Grassy Glide
+- Wood Hammer
+- Fake Out
+- U-turn
+
+**RAICHU — MEGA Y**
+Held Item: Raichunite Y
+Base Ability: Lightning Rod
+Mega Ability: No Guard
+Nature / Stat Alignment: Timid
+Stat Points:
+32 HP / 11 Def / 23 Spe
+Moves:
+- Zap Cannon
+- Focus Blast
+- Fake Out
+- Protect
+Use Mega Raichu Y for the full roster artwork. For the narrated Fake Out demonstration, regular Raichu is also suitable.
+
+SOURCES:
+Tournament team: https://standings.limitlessvgc.com/0039/player/1025/teamlist
+Community replica: https://www.championsdex.app/teams/community-mc463
+Pokepaste: https://pokepast.es/0e35fd9cd52d7552
+Replica code: 9NNN3N8A4G
+
+The recording currently ends mid-sentence. Do not add invented narration or a new ending. Flag the ending as needing the completed recording before publication.

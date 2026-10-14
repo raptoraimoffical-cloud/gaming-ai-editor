@@ -1,0 +1,279 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "pixel-platformer",
+      "name": "Pixel Platformer",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/pixel-platformer",
+      "tags": "pixel platformer characters enemies terrain backgrounds",
+      "pixelArt": true
+    },
+    {
+      "id": "pixel-platformer-food-expansion",
+      "name": "Pixel Food",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/pixel-platformer-food-expansion",
+      "tags": "pixel food items icons platformer",
+      "pixelArt": true
+    },
+    {
+      "id": "pixel-platformer-farm-expansion",
+      "name": "Pixel Farm",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/pixel-platformer-farm-expansion",
+      "tags": "pixel farm animals crops platformer",
+      "pixelArt": true
+    },
+    {
+      "id": "platformer-art-deluxe",
+      "name": "Platformer Art Deluxe",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/platformer-art-deluxe",
+      "tags": "platformer character terrain backgrounds objects"
+    },
+    {
+      "id": "tiny-town",
+      "name": "Tiny Town",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/tiny-town",
+      "tags": "pixel town overworld map tiles",
+      "pixelArt": true
+    },
+    {
+      "id": "tiny-dungeon",
+      "name": "Tiny Dungeon",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/tiny-dungeon",
+      "tags": "pixel dungeon roguelike characters enemies",
+      "pixelArt": true
+    },
+    {
+      "id": "tiny-battle",
+      "name": "Tiny Battle",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/tiny-battle",
+      "tags": "pixel battle tactics strategy characters terrain",
+      "pixelArt": true
+    },
+    {
+      "id": "tiny-farm",
+      "name": "Tiny Farm",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/tiny-farm",
+      "tags": "pixel farm animals terrain",
+      "pixelArt": true
+    },
+    {
+      "id": "pixel-shmup",
+      "name": "Pixel Shmup",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/pixel-shmup",
+      "tags": "pixel spaceship shooter space backgrounds",
+      "pixelArt": true
+    },
+    {
+      "id": "1-bit-pack",
+      "name": "1-Bit Pack",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/1-bit-pack",
+      "tags": "pixel monochrome retro characters tiles",
+      "pixelArt": true
+    },
+    {
+      "id": "digital-audio",
+      "name": "Digital Audio",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/digital-audio",
+      "tags": "sound-effect digital retro laser explosion sci-fi"
+    },
+    {
+      "id": "rpg-audio",
+      "name": "RPG Audio",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/rpg-audio",
+      "tags": "sound-effect rpg footstep weapon"
+    },
+    {
+      "id": "interface-sounds",
+      "name": "Interface Sounds",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "tags": "sound-effect interface click confirm menu"
+    },
+    {
+      "id": "sci-fi-sounds",
+      "name": "Sci-fi Sounds",
+      "provider": "kenney",
+      "license": "CC0 1.0",
+      "author": "Kenney",
+      "source": "https://kenney.nl/assets/sci-fi-sounds",
+      "tags": "sound-effect sci-fi laser explosion"
+    },
+    {
+      "id": "retro-512",
+      "name": "512 Retro Sound Effects",
+      "provider": "opengameart",
+      "license": "CC0 1.0",
+      "author": "SubspaceAudio",
+      "source": "https://opengameart.org/content/512-sound-effects-8-bit-style",
+      "tags": "sound-effect retro 8-bit jump coin pickup powerup laser explosion hit hurt death victory",
+      "download": "https://opengameart.org/sites/default/files/The%20Essential%20Retro%20Video%20Game%20Sound%20Effects%20Collection%20%5B512%20sounds%5D.zip"
+    },
+    {
+      "id": "platformer-8bit-sfx",
+      "name": "8-bit Platformer SFX",
+      "provider": "opengameart",
+      "license": "CC-BY-3.0",
+      "author": "bart; commissioned by Mark McCorkle for OpenGameArt.org",
+      "source": "https://opengameart.org/content/8-bit-platformer-sfx",
+      "tags": "sound-effect retro 8-bit jump coin powerup laser explosion menu",
+      "download": "https://opengameart.org/sites/default/files/bfxr_sounds.zip"
+    },
+    {
+      "id": "pokemon-showdown",
+      "name": "Pok\u00e9mon Showdown Sprite Collection",
+      "provider": "pokeapi",
+      "license": "Repository CC0; Pok\u00e9mon image copyright notice applies",
+      "author": "Pok\u00e9API / Pok\u00e9mon Showdown contributors",
+      "source": "https://github.com/PokeAPI/sprites",
+      "tags": "pokemon exact-form animated pixel sprites",
+      "pixelArt": true,
+      "rightsNotice": "Repository access does not grant blanket rights to Pok\u00e9mon imagery. Retain original notices and assess intended reuse."
+    }
+  ],
+  "franchises": [
+    {
+      "name": "Pok\u00e9mon",
+      "key": "pokemon",
+      "pack": "pokemon-showdown",
+      "status": "source copyright notice"
+    },
+    {
+      "name": "Minecraft",
+      "key": "minecraft",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Super Mario",
+      "key": "mario",
+      "status": "verified character pack or approved image required"
+    },
+    {
+      "name": "Sonic",
+      "key": "sonic",
+      "status": "verified character pack or approved image required"
+    },
+    {
+      "name": "The Legend of Zelda",
+      "key": "zelda",
+      "status": "verified character pack or approved image required"
+    },
+    {
+      "name": "Fortnite",
+      "key": "fortnite",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Roblox",
+      "key": "roblox",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Five Nights at Freddy's",
+      "key": "fnaf",
+      "status": "verified supplied media required"
+    },
+    {
+      "name": "Terraria",
+      "key": "terraria",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Stardew Valley",
+      "key": "stardew-valley",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Among Us",
+      "key": "among-us",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Undertale",
+      "key": "undertale",
+      "status": "verified supplied media required"
+    },
+    {
+      "name": "Hollow Knight",
+      "key": "hollow-knight",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Celeste",
+      "key": "celeste",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Valorant",
+      "key": "valorant",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Counter-Strike",
+      "key": "counter-strike",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "League of Legends",
+      "key": "league-of-legends",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Apex Legends",
+      "key": "apex-legends",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Overwatch",
+      "key": "overwatch",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Call of Duty",
+      "key": "call-of-duty",
+      "status": "own gameplay / verified supplied pack required"
+    },
+    {
+      "name": "Rocket League",
+      "key": "rocket-league",
+      "status": "own gameplay / verified supplied pack required"
+    }
+  ]
+}

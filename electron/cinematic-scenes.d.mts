@@ -1,0 +1,12 @@
+import type {Project,Scene,VisualLayer,Media} from '../src/types';
+export type CameraState={x:number;y:number;scale:number;rotation:number;light:number;color:string;focusX:number;focusY:number};
+export function cinematicEnabled(project:Project):boolean;
+export function cinematicStageAt(scene:Scene,time:number):import('../src/types').CinematicStage|undefined;
+export function spliceCinematicStage(base:import('../src/types').CinematicStage|undefined,replacement:import('../src/types').CinematicStage|undefined,start:number,end:number):import('../src/types').CinematicStage|undefined;
+export function cinematicDepth(layer:VisualLayer,layers:VisualLayer[],seen?:string[]):number;
+export function cameraAt(scene:Scene,project:Project,time:number,width?:number,height?:number,fps?:number):CameraState;
+export function cinematicTransform(camera:CameraState,depth:number,width:number,height:number):string;
+export function shutterBlur(layer:VisualLayer,layers:VisualLayer[],media:Media[],time:number,width:number,height:number,fps?:number):{x:number;y:number};
+export function activationAt(layer:VisualLayer,time:number):{x:number;y:number;rotation:number;scale:number;glow:number};
+export function applyCinematicScenes(project:Project):Project;
+export function clearCinematicScenes(project:Project):Project;

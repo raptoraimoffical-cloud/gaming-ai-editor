@@ -1,0 +1,20 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {createBackend,root,run} from '../electron/backend.mjs';import {contrastRatio,CAPTION_PALETTE} from '../electron/caption-palette.mjs';
+const dir=path.join(root,'workspace/engagement-upgrade-check');fs.mkdirSync(dir,{recursive:true});
+const b=await createBackend({workspace:path.join(dir,'backend')});
+try{
+ const voice=await b.importMedia(path.join(dir,'narration.wav'),{assetRole:'narration',license:'Windows SAPI diagnostic narration'});
+ const p=await b.generate({voiceId:voice.id,name:'Nature, hook and motion diagnostic',quality:'fast',model:'base.en',pokemon:true,pokemonNames:'Pikachu, Charizard',shortStyle:'pokemon-dense',videoMode:'youtube-shorts',backgroundMode:'ai',autoSoundEffects:true,autoPokemonCries:false,autoReactionGifs:true,localAnimatorEnabled:false},e=>console.log(e.stage));
+ fs.writeFileSync(path.join(dir,'generated.gaming.json'),JSON.stringify(p,null,2));
+ console.log('Transcript',p.scenes.map(s=>s.text).join(' '));console.log('Natures',p.natureRecognitionReport);console.log('Battles',p.battleReport?.battles);
+ assert.ok(p.transcriptionInfo.vocabularyPrompted);assert.ok(p.naturePlan.some(c=>c.name==='timid'),'Real speech must identify Timid nature');assert.equal(p.captionStyle.style,'contrast-phrase');assert.ok(p.scenes.flatMap(s=>s.layers).some(l=>l.role==='nature-mint'));assert.ok(p.engagementReport.cues.length);assert.ok(p.soundEffects.some(f=>f.cue==='pop'));assert.ok(p.soundEffects.some(f=>f.cue==='whoosh'));assert.ok(p.reactionGifPlan.length,'Absurd narration must acquire its actual reaction GIF');
+ // Exercise the actual new remake backend with intentionally split ASR words.
+ const broken=structuredClone(p),cue=broken.naturePlan.find(c=>c.name==='timid'),scene=broken.scenes.find(s=>s.id===cue.sceneId),index=scene.words.findIndex(w=>w.start===cue.start),original=scene.words[index],mid=(original.start+original.end)/2;
+ scene.words.splice(index,1,{...original,text:'Tim',end:mid,captionText:undefined},{...original,text:'id',start:mid,captionText:undefined});scene.text=scene.words.map(w=>w.text).join(' ');broken.revisionHistory=[];broken.revisionCursor=0;
+ const fixed=await b.remake(broken,'',{useAI:false});assert.ok(fixed.natureRecognitionReport.corrected);assert.deepEqual(fixed.scenes.map(s=>s.words.map(w=>[w.text,w.start,w.end])),broken.scenes.map(s=>s.words.map(w=>[w.text,w.start,w.end])));assert.equal(b.undoRedo(fixed,'undo').natureRecognitionReport.corrected,p.natureRecognitionReport.corrected);
+ fixed.musicVolume=0;fixed.musicId=undefined;fs.writeFileSync(path.join(dir,'repair-source.gaming.json'),JSON.stringify(broken,null,2));fs.writeFileSync(path.join(dir,'project.gaming.json'),JSON.stringify(fixed,null,2));
+ const output=await b.render(fixed,path.join(dir,'engagement-upgrade.mp4'),e=>{if(e.percent===undefined)console.log(e.stage);});
+ const frames=[];const c=fixed.naturePlan.find(c=>c.name==='timid'),battle=fixed.battleReport?.battles?.[0];
+ for(const [label,time] of [['hook',.6],['nature',c.start+.35],...(battle?[['battle',battle.at+battle.duration*.4]]:[]),['reaction',(fixed.reactionGifPlan[0]?.start??0)+.4]]){const file=path.join(dir,label+'.png');await run('ffmpeg',['-v','error','-y','-ss',String(time),'-i',output.output,'-frames:v','1','-vf','scale=540:960',file]);frames.push(file);}
+ fs.writeFileSync(path.join(dir,'verification.json'),JSON.stringify({realWhisper:p.transcriptionInfo,natureRecognition:fixed.natureRecognitionReport,mintSource:fixed.media.find(m=>m.id==='pokemon-item-timid-mint')?.attribution,localBattle:fixed.battleReport,captionContrast:{white:contrastRatio(CAPTION_PALETTE.text,CAPTION_PALETTE.backing),yellow:contrastRatio(CAPTION_PALETTE.accent,CAPTION_PALETTE.backing)},soundCues:fixed.soundEffectReport.cues,splitRepair:true,narrationTimingPreserved:true,undo:true,output:output.output,frames},null,2));console.log('PASS actual speech, split nature repair, real mint, captions, entrances/SFX, GIF, remake/Undo and MP4');
+}finally{b.close();}

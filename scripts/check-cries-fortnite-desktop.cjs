@@ -1,0 +1,23 @@
+const {app,BrowserWindow,ipcMain}=require('electron');const path=require('node:path');
+app.whenReady().then(async()=>{
+ await require('./desktop-fixtures.cjs').registerProjectServices();
+ const {createBackend}=await import('../electron/backend.mjs');const b=await createBackend();
+ ipcMain.handle('library',()=>b.library());ipcMain.handle('pokemon-search',()=>[{name:'pikachu'}]);
+ ipcMain.handle('pokemon-asset',(_,n,o)=>b.pokemonAsset(n,o));ipcMain.handle('pokemon-cry',(_,n,v)=>b.pokemonCry(n,v));
+ ipcMain.handle('fortnite-list',(_,o)=>b.fortniteAssets.list(o));ipcMain.handle('fortnite-download',(_,id)=>b.fortniteAssets.download(id));
+ const win=new BrowserWindow({show:false,webPreferences:{preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true}});
+ await win.loadFile(path.join(__dirname,'../dist/index.html'));
+ const js=s=>win.webContents.executeJavaScript(s),click=label=>js(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent===${JSON.stringify(label)}).click()`);
+ const until=condition=>js(`new Promise((resolve,reject)=>{let n=0;const id=setInterval(()=>{if(${condition}){clearInterval(id);resolve();}else if(++n>200){clearInterval(id);reject(Error('Desktop check timed out'));}},100);})`);
+ if(await js(`Array.from(document.querySelectorAll('nav button')).some(b=>b.textContent==='Game Assets')`))throw Error('Removed Game Assets tab still present');
+ await require('./desktop-fixtures.cjs').navigateWorkbench(win,'Fortnite Assets');await click('Browse / search wiki assets');await until(`document.querySelectorAll('.minecraft-grid article').length>10`);
+ const count=await js(`document.querySelectorAll('.minecraft-grid article').length`);
+ await js(`document.querySelector('.minecraft-grid article button').click()`);await until(`document.querySelector('[role="status"]')?.textContent.includes('imported')`);
+ await require('./desktop-fixtures.cjs').navigateWorkbench(win,'Pokemon');await js(`document.querySelector('.pokemon-search form').requestSubmit()`);await until(`document.querySelector('.pokemon-results button')`);
+ await click('pikachu');await until(`document.body.innerText.includes('Load / preview cry')`);await click('Load / preview cry');
+ await until(`document.querySelector('audio[aria-label="Preview Pokémon cry"]')?.readyState>=1`);
+ const duration=await js(`document.querySelector('audio').duration`);if(!(duration>0))throw Error('Cry is not playable');
+ await click('Edit');await click('Generate / new edit');if(!await js(`document.querySelector('[aria-label="Automatic Pokémon cries"]')?.checked`))throw Error('Cry generation option missing');
+ console.log('PASS no Game Assets tab, '+count+' live Fortnite Wiki thumbnails, direct import, playable cry ('+duration+'s), automatic cry toggle');
+ win.destroy();b.close();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});

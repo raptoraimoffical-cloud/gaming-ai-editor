@@ -1,0 +1,14 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {pathToFileURL} from 'node:url';
+import {visualPlanningInput} from '../electron/ai-performance.mjs';import {byId} from '../electron/indexed-assets.mjs';import {placementFor} from '../electron/layer-motion.mjs';
+const root=path.resolve(import.meta.dirname,'..'),folder=path.join(root,'workspace/audit-training');fs.mkdirSync(folder,{recursive:true});
+const source=JSON.parse(fs.readFileSync(path.join(root,'workspace/context-check/updated-short.gaming.json'),'utf8'));
+const media=source.media,ids=media.map(m=>m.id);assert.ok(media.length>0);
+// Compare only lookup cost; this is not an end-to-end video-generation benchmark.
+let checksum=0;const measure=fn=>{const samples=[];for(let run=0;run<7;run++){const start=performance.now();for(let i=0;i<300000;i++)checksum+=fn(ids[i%ids.length])?1:0;samples.push(performance.now()-start);}return samples.sort((a,b)=>a-b)[3];};
+for(const id of ids)assert.equal(byId(media,id),media.find(m=>m.id===id));
+const baselineMs=measure(id=>media.find(m=>m.id===id)),indexedMs=measure(id=>byId(media,id));
+// The same attachment coordinates must be returned with uncached Array.find.
+const original=fs.readFileSync(path.join(root,'electron/layer-motion.mjs'),'utf8'),temp=path.join(folder,'uncached-layer-motion.mjs');fs.writeFileSync(temp,original.replace("import {byId} from './indexed-assets.mjs';","const byId=(array,id)=>array?.find(v=>v.id===id);").replace("from 'remotion'",`from ${JSON.stringify(pathToFileURL(path.join(root,'node_modules/remotion/dist/esm/index.mjs')).href)}`));
+let geometryChecks=0;
+try{const uncached=await import(pathToFileURL(temp));for(const scene of source.scenes)for(const t of [scene.start+.1,(scene.start+scene.end)/2,scene.end-.1])for(const l of scene.layers||[]){assert.deepEqual(placementFor(l,scene.layers,media,t,1080,1920,60),uncached.placementFor(l,scene.layers,media,t,1080,1920,60));geometryChecks++;}}finally{fs.unlinkSync(temp);}
+const compact=visualPlanningInput(source,'Diagnostic layout comparison'),report={project:path.relative(root,'workspace/context-check/updated-short.gaming.json'),mediaCount:media.length,sceneCount:source.scenes.length,fullSceneBytes:Buffer.byteLength(JSON.stringify(source.scenes)),compactSceneBytes:Buffer.byteLength(JSON.stringify(compact.scenes)),compactPromptBytes:Buffer.byteLength(JSON.stringify(compact)),lookupsPerSample:300000,samples:7,medianFindMs:baselineMs,medianIndexedMs:indexedMs,lookupSpeedRatio:baselineMs/indexedMs,identicalAttachmentGeometryChecks:geometryChecks,checksum,limits:'Lookup timings and prompt sizes only; no claim of an equivalent total video-generation speedup.'};fs.writeFileSync(path.join(folder,'performance-benchmark.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

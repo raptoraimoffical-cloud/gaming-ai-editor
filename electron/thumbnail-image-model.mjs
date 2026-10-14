@@ -1,0 +1,14 @@
+import fs from 'node:fs';import path from 'node:path';import sharp from 'sharp';import crypto from 'node:crypto';
+export function createThumbnailImageModel(folder,{fetchImpl=fetch}={}){
+ fs.mkdirSync(folder,{recursive:true});
+ return async function generate(prompt,state,{nonce,format='shorts',progress=()=>{},background=false,reference}={}){
+  const settings=state.settings?.imageGeneration;if(!settings?.enabled)throw Error('New image synthesis needs an image model enabled in Settings. Source-image edits and original graphics work without it.');
+  const base=new URL(settings.url||'http://127.0.0.1:7860');if(!['http:','https:'].includes(base.protocol)||base.username||base.password)throw Error('Use a valid image-model endpoint');
+  const seed=crypto.createHash('sha256').update(nonce).digest().readUInt32LE()%2147483647,signal=AbortSignal.any([state.signal,AbortSignal.timeout(240000)]),vertical=format==='shorts',width=vertical?768:1344,height=vertical?1344:768;
+  progress({stage:reference?'Editing artwork with the configured image model':'Creating new thumbnail artwork with the configured image model'});
+  const body={prompt:String(prompt).slice(0,4000)+(background?', detailed cinematic environment, leave foreground room, no text or foreground characters':''),negative_prompt:'watermark, blurry, illegible letters, distorted anatomy',width,height,seed,steps:28,batch_size:1,n_iter:1,send_images:true,save_images:false};
+  if(reference){body.init_images=[(await sharp(reference.path).resize(width,height,{fit:'inside'}).png().toBuffer()).toString('base64')];body.denoising_strength=.42;}
+  const r=await fetchImpl(new URL(reference?'/sdapi/v1/img2img':'/sdapi/v1/txt2img',base),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal});if(!r.ok)throw Error('Image generation HTTP '+r.status);const d=await r.json(),encoded=d.images?.[0]?.replace(/^data:image\/\w+;base64,/, '');if(!encoded||encoded.length>45000000)throw Error('Image model returned no supported image');const data=Buffer.from(encoded,'base64'),meta=await sharp(data,{limitInputPixels:16777216}).metadata(),id='thumbnail-art-'+nonce+'-'+crypto.randomUUID(),file=path.join(folder,id+'.png');await sharp(data,{limitInputPixels:16777216}).png().toFile(file);state.signal.throwIfAborted();
+  return {id,name:background?'New AI arena artwork':'New AI thumbnail artwork',path:file,kind:'image',width:meta.width,height:meta.height,transparent:!!meta.hasAlpha,generatedForThumbnail:true,generation:{seed,prompt,endpoint:base.href,editedSourceId:reference?.id},identity:{franchise:'illustration',subject:'generated-artwork',source:'Configured image model'},license:settings.license||'Generated with the user-configured image model',attribution:{credit:'Generated with the configured image model',source:base.href,changes:reference?'Image model edit of the supplied source':'Created afresh for this thumbnail'}};
+ };
+}

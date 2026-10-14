@@ -1,0 +1,140 @@
+# MASTER AI EDITING INSTRUCTIONS
+## VIDEO 2 — THE PLAYER WHO WENT 17–0
+### Pokémon Champions YouTube Short
+
+Create a highly edited competitive Pokémon YouTube Short using my original `1012 (1).MP3` voice recording. The Short tells the story of Eric Rios, who went undefeated at the September 2026 Frankfurt Pokémon Regional Championship against a field of 1,129 competitors.
+Use the three provided reference Shorts as the quality standard. Authentic Pokémon artwork, physical interactions, quick cameras, smooth transitions, relevant jokes, source screenshots, held items and synchronized impacts. The narration is final. Do not rewrite, shorten, expand or replace my recording. Do not use unrelated footage or generic AI characters.
+
+# 1. EXACT AUDIO SCRIPT
+"Over eleven hundred players entered a Pokémon Champions Regional, and somehow one player won the entire thing without losing a single match.
+Eric Rios finished the Frankfurt Regional with a record of seventeen and zero.
+And this is the exact team he used. Pause here if you wanna copy the build.
+At first, it might not look that crazy, until you realize that three of his Pokémon have Fake Out. Incineroar, Rillaboom, and even Raichu.
+To make it worse, while you're dealing with those, Volcarona can redirect attacks with Rage Powder or use Tailwind to make his entire team faster.
+Which gives Gholdengo time to use Nasty Plot.
+And suddenly, its Life Orb-boosted Make It Rain is hitting both opponents.
+After hearing all this, it's no wonder that in a tournament with..."
+IMPORTANT: The supplied recording currently ends mid-sentence. Do not invent additional spoken words or use text-to-speech to complete it.
+
+# 2. VIDEO FORMAT AND STYLE
+1080 × 1920, 9:16 vertical YouTube Short, 60 FPS. Approximately 43.94 seconds; use the original audio for final timing. Large mobile-friendly Pokémon, transparent official artwork, darkened slightly blurred battle footage. Animate realistic acceleration, impact reactions, rotation and subtle parallax. Do not move everything constantly. Stronger effects for major actions. White bold captions with dark outline and yellow important phrases; keep them clear.
+
+# 3. SCENE-BY-SCENE EDITING BLUEPRINT
+## SCENE 1 — THE 1,100-PLAYER TOURNAMENT
+**Voiceover:** "Over eleven hundred players entered a Pokémon Champions Regional..."
+The first frame must be interesting. Open with genuine Frankfurt event footage or a strong Pokémon Champions battle visual. Packed competition venue, competitors, battle screens and Pokémon shots. If event footage is unavailable, use a polished tournament composition with Champions gameplay and a rapidly increasing player counter.
+"100 PLAYERS"
+"500 PLAYERS"
+"1,000 PLAYERS"
+"1,129 PLAYERS"
+End with 1,129 large. Quick ticks and a crisp hit. Do not label another event's footage as Frankfurt.
+## SCENE 2 — SOMEONE DIDN'T LOSE
+**Voiceover:** "...and somehow one player won the entire thing without losing a single match."
+Darken the scene and reveal a large silhouette of a competitive Pokémon trainer in a spotlight. Do not use a fake likeness of Eric Rios. A red LOSS counter stays at "0 LOSSES". A green "UNDEFEATED" appears. Several victory checks behind him. Build anticipation before the actual identity.
+## SCENE 3 — ERIC RIOS AND THE 17–0 RECORD
+**Voiceover:** "Eric Rios finished the Frankfurt Regional with a record of seventeen and zero."
+Reveal a verified photo of Eric Rios or authentic winner footage. Do not substitute unrelated players. Show "ERIC RIOS", "FRANKFURT REGIONAL CHAMPION" and huge "17–0". The 17 enters first, then the 0 with impact. A bracket/result board can appear behind him. This is 16 recorded match wins and a top-cut bye. Do not claim footage shows a particular match without verification.
+## SCENE 4 — REVEAL THE SIX POKÉMON
+**Voiceover:** "And this is the exact team he used."
+Reveal all six Pokémon with a rapid organized animation, correct species/forms: Gholdengo, Volcarona, Mega Garchomp Z, Incineroar, Rillaboom, Mega Raichu Y. Distinct little pops and whooshes. Slots transform into the detailed full-build cards.
+## SCENE 5 — THE FULL BUILD OVERLAY
+**Voiceover:** "Pause here if you wanna copy the build."
+Hold the complete build overlay through the line and deliberate quiet gap. Do not obscure the build with karaoke subtitles. Show all six cards simultaneously, complete items, abilities, natures, four moves, SP, Level 50. Dark neutral panels, thin borders and restrained accent colors. Two columns and three rows, readable lettering. Export a separate full-resolution PNG. Use the exact data below.
+## SCENE 6 — IT DOESN'T LOOK THAT CRAZY
+**Voiceover:** "At first, it might not look that crazy..."
+Move smoothly away from the pause sheet. Show all six in a simple roster composition. Look normal initially; optional small question mark. Punch toward the next reveal when "until you realize" is spoken.
+## SCENE 7 — THREE FAKE OUT USERS
+**Voiceover:** "...until you realize that three of his Pokémon have Fake Out. Incineroar, Rillaboom, and even Raichu."
+FIRST: Incineroar appears centrally and swipes toward an eligible opposing Pokémon. "FAKE OUT #1".
+SECOND: Rillaboom comes beside it and performs a distinct clap/slap impact. "FAKE OUT #2".
+THIRD: Raichu closes distance rapidly and uses a faster smaller attack; tiny zoom at "even Raichu". "FAKE OUT #3". Optional "ANOTHER ONE?" joke.
+Show the real Fake Out move image. Three distinct punchy impacts. Do not reuse three identical sprite slides. These are separate legal first-turn examples, not simultaneous actions on one turn. Regular Raichu is suitable here.
+## SCENE 8 — NOW VOLCARONA MAKES IT WORSE
+**Voiceover:** "To make it worse, while you're dealing with those, Volcarona can redirect attacks with Rage Powder..."
+Construct an illustrative doubles battle. Volcarona stands next to Gholdengo. An eligible opponent prepares a single-target attack aimed at Gholdengo. Volcarona uses Rage Powder and emits sparkling particles. Curve the targeting line toward Volcarona. The move hits Volcarona and leaves Gholdengo unharmed. Show the real Rage Powder image. No spread move or powder-immune attacker. On screen "RAGE POWDER", "REDIRECTED". Light powder sound and attack impact.
+## SCENE 9 — TAILWIND
+**Voiceover:** "...or use Tailwind to make his entire team faster."
+Volcarona flaps its wings in the same battlefield. Cyan wind trails travel through the allied side; speed streaks around its ally and upward arrows. Use the actual Tailwind picture. "TAILWIND", "2× SPEED". Teamwide boost only on allies, never opponents. Rising wind whoosh.
+## SCENE 10 — GHOLDENGO GETS ITS OPPORTUNITY
+**Voiceover:** "Which gives Gholdengo time to use Nasty Plot."
+Begin in the Volcarona battle composition and pan toward Gholdengo. Grow its framing, briefly glow its eyes, subtle thoughtful expression. Use Nasty Plot as a setup animation, not an attack. Show real Nasty Plot image and Special Attack arrows. "+2 SP. ATK". Short stat-boost chime.
+## SCENE 11 — LIFE ORB MAKE IT RAIN
+**Voiceover:** "And suddenly, its Life Orb-boosted Make It Rain is hitting both opponents."
+Main battle animation: Gholdengo faces two opponents. Gold particles and coins form overhead, zoom toward Gholdengo, metallic coins rain down on both opponents, both react, layered coin impacts and brief camera shake. The Life Orb actual item icon activates briefly beside Gholdengo. Show the actual Make It Rain image. "LIFE ORB", "MAKE IT RAIN", "BOTH OPPONENTS". No exact damage numbers or guaranteed knockouts. This is an illustrated demonstration, never label it Eric's actual match footage. Coins and metallic sounds, one concluding impact.
+## SCENE 12 — THE FINAL SENTENCE
+**Voiceover:** "After hearing all this, it's no wonder that in a tournament with..."
+Return through a quick montage of the three Fake Out users, Rage Powder, Nasty Plot, Make It Rain and the six-member roster. Return to tournament scenery. Make the large "1,129 PLAYERS" number reappear. The audio stops here; no invented ending, duplicate voice or additional narration. Flag incomplete recording and keep editable.
+
+# 4. FULL BUILD DATA — EXACT OVERLAY CONTENT
+All Level 50. Label Stat Points as "SP". Use published team and community replica; do not invent stats.
+**GHOLDENGO**
+Held Item: Life Orb
+Ability: Good as Gold
+Nature / Stat Alignment: Modest
+Stat Points: 17 HP / 7 SpA / 22 SpD / 20 Spe
+Moves:
+- Protect
+- Shadow Ball
+- Nasty Plot
+- Make It Rain
+**VOLCARONA**
+Held Item: Rocky Helmet
+Ability: Flame Body
+Nature / Stat Alignment: Timid
+Stat Points: 13 HP / 30 Def / 23 Spe
+Moves:
+- Overheat
+- Struggle Bug
+- Rage Powder
+- Tailwind
+**GARCHOMP — MEGA Z**
+Held Item: Garchompite Z
+Base Ability: Rough Skin
+Mega Ability: Levitate
+Nature / Stat Alignment: Modest
+Stat Points: 4 Def / 30 SpA / 32 Spe
+Moves:
+- Dragon Pulse
+- Earth Power
+- Power Gem
+- Protect
+**INCINEROAR**
+Held Item: Sitrus Berry
+Ability: Intimidate
+Nature / Stat Alignment: Impish
+Stat Points: 30 HP / 20 Def / 14 SpD / 2 Spe
+Moves:
+- Parting Shot
+- Fake Out
+- Flare Blitz
+- Darkest Lariat
+**RILLABOOM**
+Held Item: Miracle Seed
+Ability: Grassy Surge
+Nature / Stat Alignment: Adamant
+Stat Points: 26 HP / 30 Atk / 1 Def / 4 SpD / 5 Spe
+Moves:
+- Grassy Glide
+- Wood Hammer
+- Fake Out
+- U-turn
+**RAICHU — MEGA Y**
+Held Item: Raichunite Y
+Base Ability: Lightning Rod
+Mega Ability: No Guard
+Nature / Stat Alignment: Timid
+Stat Points: 32 HP / 11 Def / 23 Spe
+Moves:
+- Zap Cannon
+- Focus Blast
+- Fake Out
+- Protect
+
+Sources:
+https://standings.limitlessvgc.com/0039/player/1025/teamlist
+https://www.championsdex.app/teams/community-mc463
+https://pokepast.es/0e35fd9cd52d7552
+Replica code: 9NNN3N8A4G
+
+# 5. ASSET AND SOUND RULES
+Use actual original downloaded image files, not HTML or thumbnails. Correct species and Mega forms, sharp transparent artwork, original game rights holders, actual published move images and official item icons. No unrelated stock images. Competitive low-volume gaming music below voiceover. Pops, whooshes, game clicks, real Pokémon cries, separate Fake Out impacts, powder, wind, stat boost and coins. Do not add long memes or speech. Keep narration intact. These current instructions belong to this project only.

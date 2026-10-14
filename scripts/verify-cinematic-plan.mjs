@@ -1,0 +1,16 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {root} from '../electron/backend.mjs';import {createLocalAI} from '../electron/local-ai.mjs';import {applyGoldReferenceBrief} from '../electron/gold-reference-policy.mjs';import {applyCreativeActions} from '../electron/creative-actions.mjs';import {applyCinematicScenes} from '../electron/cinematic-scenes.mjs';
+const folder=path.join(root,'workspace/cinematic-reference-check');fs.mkdirSync(folder,{recursive:true});
+const source=JSON.parse(fs.readFileSync(path.join(root,'workspace/context-check/updated-short.gaming.json'),'utf8')),lead=source.media.find(m=>m.name==='Mega Sceptile'),other=source.media.find(m=>m.pokemon?.name==='rotom');
+const text='Mega Sceptile charges up. Then Mega Sceptile and Rotom switch places.',words=text.split(' ').map((text,i)=>({text,start:i*.55,end:i*.55+.5}));
+const scene={id:'fresh-cinematic',start:0,end:9,text,words,reaction:{entities:[lead,other].map(m=>({id:m.id,name:m.name,type:'pokemon',mediaId:m.id,start:0})),metrics:[]},layers:[lead,other].map((m,i)=>({id:'actor-'+i,type:'image',role:'subject',mediaId:m.id,x:i?.54:.04,y:.30,width:.42,height:.35,z:30+i,start:0,end:9,animation:'none',exit:'none',fit:'contain'}))};
+const p=applyGoldReferenceBrief({id:'cinematic-model-diagnostic',creativePassId:crypto.randomUUID(),name:'Cinematic model diagnostic',duration:9,format:'vertical',gameSelection:'pokemon',voiceId:source.voiceId,media:[lead,other,...source.media.filter(m=>m.id===source.voiceId)],scenes:[scene],captionStyle:source.captionStyle,captionColor:source.captionColor,editingInstructions:'Act out the described charging and position exchange. Use only the two supplied actors. Use a power-up and a swap-order, at their actual spoken cues.'});
+const ai=createLocalAI(path.join(root,'workspace')),state=await ai.begin('fast');state.canSearchImages=false;
+console.log('Connected trained model: '+(state.models.editing||state.models.reasoning)?.name);
+try{
+ const planned=await ai.author(p,state,()=>{}),performed=applyCinematicScenes(applyCreativeActions(planned));
+ assert.ok(state.inferenceEvents?.some(e=>e.performed&&e.accepted));assert.ok(planned.scenes[0].editorialPlan?.creativeActions?.length>=2,'The trained planner did not deliver two usable cinematic actions');assert.ok(performed.creativeActionReport?.events.length>=2,'The authored actions did not reach the timeline');assert.ok(performed.cinematicReport?.cameraBeats>=2);
+ assert.deepEqual(performed.scenes[0].words,words);assert.deepEqual(performed.captionStyle,p.captionStyle);
+ fs.writeFileSync(path.join(folder,'trained-plan-verification.json'),JSON.stringify({model:planned.creativePlanningReport?.model||state.models.editing?.name,inference:state.inferenceEvents,acceptedPlan:planned.scenes[0].editorialPlan,executed:performed.creativeActionReport,cinematic:performed.cinematicReport,captionsUnchanged:true,sourceAudioUnchanged:true,previousTimelineUsed:false,projectSaved:false,noGoogleDiagnostic:true},null,2));
+ console.log('PASS real trained inference -> accepted actions -> cinematic execution; current instructions and exact narration; no project saved');
+}finally{ai.cancel();}

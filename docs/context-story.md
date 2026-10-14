@@ -1,0 +1,15 @@
+The AI Changes **Animate story & fix names** button rebuilds the narration visuals, corrects recognized names, and keeps caption appearance and original speech timing. New videos use the same context rules. The previous stock Professional game video brief upgrades from sparse documentary effects; custom Clean Documentary instructions still apply.
+
+Descriptions act on the focused character. Smallness shrinks its image beside a sourced ruler. Speed moves the same character quickly within the canvas. Critical stats get a brief sad cat reaction on the stats panel; the actor and numeric values remain readable. Authored layouts, held items, gameplay, diagrams and complete attacks take priority over extra decoration.
+
+The parser recovers split Staraptor and Basculegion names. Established Mega and regional forms persist through shortened species names until an explicit regular/base form or another explicit form changes the context. Ambiguous Mega Charizard X/Y stays unresolved for review, including later shorthand, rather than silently showing regular Charizard. `Plus, it has good synergy` does not become the ability Plus; `the ability Plus` does.
+
+Coordinated subjects such as Rotom and Mega Sceptile both perform a narrated attack. The named knockout target stays gone until it is named again. Illustrative attacks use the move's sourced damage class and type; they do not calculate game damage or verify move legality. Spoken move access creates a named callout without pretending a move was performed.
+
+Sound effects follow actual visual reveals, narration changes and attacks throughout the video. Pokémon focus beats and mechanic changes use the recognizable game menu click; boosts use a cached recorded stat-rise cue. Soft pops, short swooshes, type effects and cries remain quieter than the voice. Manual sounds and explicit no-SFX limits persist.
+
+Google Images acquisition uses the existing SerpApi provider in Settings, original downloads, decoding and background removal. It rejects emoji candidates, acquires only relevant props and caches selections. Without a configured key, exact cached artwork and attributed published props are used; no emoji substitutes are added. Legacy Twemoji props are excluded from automatic selection.
+
+Published fallback prop sources and sound attribution are retained in `electron/data/narration-props/context-manifest.json` and `electron/data/pokemon-sounds/manifest.json`. `scripts/cache-context-art.mjs` refreshes the prop cache; `python/cache_move_metadata.py` refreshes PokeAPI move facts, including stat changes and target types.
+
+Validation: `tests/context-story.test.mjs` covers names, form memory, conjunctions, reversible actor motion, placement, multiple attackers, game cues and Google cache selection. `scripts/verify-context-story.mjs` rebuilds the previously repaired saved short into a separate copy and renders six diagnostic frames. `scripts/check-story-movie-desktop.cjs` exercises the actual button, rendered actor layers, caption CSS and Undo/Redo in Electron.

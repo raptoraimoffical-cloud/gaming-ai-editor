@@ -1,0 +1,7 @@
+{
+  "source": "https://github.com/pret/pokered/blob/master/audio/sfx/press_ab_1.asm",
+  "name": "Pokemon Red A/B menu click",
+  "notice": "Pokemon game sound design belongs to its original rights holders. The short effect is rendered from documented square-channel note parameters; it is not a recording or a cycle-accurate emulator.",
+  "duty": 0.5,
+  "notes": [[0, 9, 1, 1984], [0, 8, 1, 2000], [0, 9, 1, 1984], [12, 10, 1, 2000]]
+}

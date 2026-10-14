@@ -1,0 +1,27 @@
+const {app,BrowserWindow,ipcMain}=require('electron');
+const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
+app.whenReady().then(async()=>{
+ await require('./desktop-fixtures.cjs').registerProjectServices();
+ const folder=path.resolve(__dirname,'../workspace/quality-recovery-tests');fs.mkdirSync(folder,{recursive:true});
+ const b=await(await import('../electron/backend.mjs')).createBackend({workspace:path.join(folder,'desktop-library-'+Date.now())});
+ let saved=JSON.parse(fs.readFileSync(path.join(folder,'corrected.gaming.json'),'utf8'));
+ ipcMain.handle('library',()=>b.library());ipcMain.handle('open',()=>b.hydrate(saved));ipcMain.handle('save',(_,p)=>{saved=p;return true;});
+ ipcMain.handle('local-ai-discover',(_,s)=>b.localAI.discover(s));ipcMain.handle('local-ai-save',(_,s)=>b.localAI.save(s));ipcMain.handle('local-ai-cancel',()=>b.localAI.cancel());
+ ipcMain.handle('reveal',()=>{});
+ const win=new BrowserWindow({show:true,width:1500,height:980,webPreferences:{preload:path.resolve(__dirname,'../electron/preload.cjs'),contextIsolation:true,nodeIntegration:false,backgroundThrottling:false}});
+ await win.loadFile(path.resolve(__dirname,'../dist/index.html'));const js=code=>win.webContents.executeJavaScript(code,true);
+ const wait=condition=>js(`new Promise((resolve,reject)=>{const deadline=Date.now()+30000,t=setInterval(()=>{if(${condition}){clearInterval(t);resolve();}else if(Date.now()>deadline){clearInterval(t);reject(Error('Timed out: '+${JSON.stringify(condition)}));}},100);})`);
+ const button=text=>js(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent===${JSON.stringify(text)}).click()`);
+ const value=(label,text)=>js(`(()=>{const el=document.querySelector('[aria-label="'+${JSON.stringify(label)}+'"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,${JSON.stringify(String(text))});el.dispatchEvent(new Event('input',{bubbles:true}));})()`);
+ await wait("document.querySelector('header')");await button('Generate / new edit');await button('Advanced AI settings');await wait("document.querySelector('[aria-label=\"Post-render review model\"]')||document.querySelector('[aria-label=\"review model\"]')");await wait("!document.querySelector('.ai-settings button:last-of-type').disabled");
+ assert.ok(await js("document.querySelectorAll('.ai-settings select[aria-label$=\"model\"]').length>=4"));
+ await value('Storyboard alternatives',3);await value('Maximum review passes',3);await value('Maximum corrections per scene',2);await value('Candidate assets per scene',8);await button('Save AI configuration');await wait("document.querySelector('footer').innerText.includes('Local AI settings saved')");
+ assert.equal(b.localAI.settings().alternatives,3);assert.equal(b.localAI.settings().reviewPasses,3);assert.equal(b.localAI.settings().candidateLimit,8);assert.equal(b.localAI.settings().imageGeneration.enabled,undefined);
+ await value('Storyboard alternatives',9);await button('Save AI configuration');await wait("document.querySelector('footer').innerText.includes('alternatives must be between 1 and 4')");assert.equal(b.localAI.settings().alternatives,3);
+ assert.ok(!(await js("document.querySelector('footer').innerText")).includes('Error invoking remote method'));
+ await value('Storyboard alternatives',3);await button('Save AI configuration');await wait("document.querySelector('footer').innerText.includes('Local AI settings saved')");await js("document.querySelector('.ai-settings').scrollIntoView({block:'start'});new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");fs.writeFileSync(path.join(folder,'desktop-settings.png'),(await win.webContents.capturePage()).toPNG());
+ await button('Close');await button('Open project');await wait("document.querySelectorAll('.scene-list .clip').length>0");await require('./desktop-fixtures.cjs').navigateWorkbench(win,'Storyboard / Reference');await wait("document.querySelector('.processing-evidence')");
+ await js("document.querySelector('.processing-evidence').open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");assert.ok((await js("document.querySelector('.processing-evidence').innerText")).includes('accepted corrections'));
+ fs.writeFileSync(path.join(folder,'desktop-review-report.png'),(await win.webContents.capturePage()).toPNG());fs.writeFileSync(path.join(folder,'desktop-verification.json'),JSON.stringify({visible:win.isVisible(),productionUI:true,fourModelRoles:true,budgetsSaved:b.localAI.settings(),invalidBudgetRecovered:true,readableErrors:true,reopenedReviewEvidence:true},null,2));
+ console.log('PASS: real Electron advanced settings save review budgets, reject invalid values gracefully, and show saved frame-review/correction evidence.');win.destroy();b.close();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});

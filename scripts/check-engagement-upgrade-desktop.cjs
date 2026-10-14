@@ -1,0 +1,19 @@
+const {app,BrowserWindow,ipcMain}=require('electron');const path=require('node:path'),fs=require('node:fs'),assert=require('node:assert/strict');
+const dir=path.join(__dirname,'../workspace/engagement-desktop-check');fs.mkdirSync(dir,{recursive:true});app.setPath('userData',path.join(dir,'user-data'));app.disableHardwareAcceleration();
+app.whenReady().then(async()=>{
+ await require('./desktop-fixtures.cjs').registerProjectServices();const {createBackend}=await import('../electron/backend.mjs');const b=await createBackend({workspace:path.join(dir,'backend')});let win;
+ try{
+  const source=JSON.parse(fs.readFileSync(path.join(__dirname,'../workspace/engagement-upgrade-check/repair-source.gaming.json'),'utf8'));source.natureRecognitionReport=undefined;source.naturePlan=[];source.engagementReport=undefined;source.captionResearch=undefined;for(const s of source.scenes)s.layers=[];const p=b.hydrate(source);let next,context;
+  ipcMain.handle('open',()=>p);ipcMain.handle('library',()=>p.media);ipcMain.handle('revision-remake',async(_,p,r,c)=>{context=c;next=await b.remake(p,r,c);return next;});ipcMain.handle('revision-history',(_,p,d)=>b.undoRedo(p,d));
+  win=new BrowserWindow({show:false,webPreferences:{backgroundThrottling:false,preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true}});await win.loadFile(path.join(__dirname,'../dist/index.html'));
+  const js=s=>win.webContents.executeJavaScript(s),pause=()=>js('new Promise(r=>setTimeout(r,150))');
+  const click=async label=>{await js('(()=>{const b=[...document.querySelectorAll("button")].find(b=>b.textContent==='+JSON.stringify(label)+');if(!b||b.disabled)throw Error("Missing/disabled button "+'+JSON.stringify(label)+');b.click()})()');await pause();};
+  await click('Open project');await click('Rebuild hooks, natures & effects');for(let i=0;i<400&&!next;i++)await pause();assert.ok(next,'Actual remake failed');await pause();assert.equal(context.useAI,false);assert.equal(next.natureRecognitionReport.corrected,1);assert.equal(next.captionStyle.style,'contrast-phrase');assert.ok(next.scenes.flatMap(s=>s.layers).some(l=>l.role==='hook-teaser'));assert.ok(next.battleReport.battles.length);
+  for(let i=0;i<3;i++)await click('+1s');assert.ok(await js('!!document.querySelector(`[data-layer*="nature-mint"] img`)'),'Mint not rendered in actual preview');
+  const palette=await js('(()=>{const spans=[...document.querySelectorAll(`[data-captions] span`)];return spans.map(s=>({text:s.textContent,color:getComputedStyle(s).color,background:getComputedStyle(s).backgroundColor}))})()');assert.ok(palette.some(s=>s.color==='rgb(255, 255, 255)'),'White captions were overridden by an old scene accent');assert.ok(palette.every(s=>s.background==='rgb(16, 23, 34)'),'Dark caption backing missing');
+  const summaries=await js('[...document.querySelectorAll("summary")].map(s=>s.textContent)');assert.ok(summaries.some(s=>s.startsWith('Pokemon natures:')));assert.ok(summaries.some(s=>s.startsWith('Motion & hooks:')));
+  fs.writeFileSync(path.join(dir,'preview.png'),await win.webContents.capturePage().then(i=>i.toPNG()));
+  await click('Undo');assert.ok(!await js('!!document.querySelector(`[data-layer*="nature-mint"]`)'));await click('Redo');assert.ok(await js('!!document.querySelector(`[data-layer*="nature-mint"]`)'));
+  fs.writeFileSync(path.join(dir,'verification.json'),JSON.stringify({actualRebuildButton:true,splitNatureCorrection:true,realMintPreview:true,localBattle:true,introCast:true,whiteCaptionText:true,darkCaptionBacking:true,palette,visibleReports:true,undoRedo:true},null,2));console.log('PASS actual rebuild button, split nature repair, mint preview, local battle, intro cast, white captions/dark backing, reports and Undo/Redo');
+ }finally{win?.destroy();b.close();app.quit();}
+}).catch(e=>{console.error(e);app.exit(1);});

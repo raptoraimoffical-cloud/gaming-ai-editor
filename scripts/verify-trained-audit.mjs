@@ -1,0 +1,8 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {createLocalAI} from '../electron/local-ai.mjs';import {reviseProject} from '../electron/revisions.mjs';
+const root=path.resolve(import.meta.dirname,'..'),folder=path.join(root,'workspace/feature-audit');fs.mkdirSync(folder,{recursive:true});
+const ai=createLocalAI(path.join(root,'workspace')),settings=await ai.editingSettings();assert.ok(settings.model,'An installed trained editing model is required');
+const source=JSON.parse(fs.readFileSync(path.join(root,'workspace/context-check/updated-short.gaming.json'),'utf8')),scene=source.scenes[0],actor=scene.layers.find(l=>l.role==='subject');
+const begin=performance.now(),next=await reviseProject(source,'Make only the selected character 20 percent smaller. Keep the narration, captions, timing, background and every other layer unchanged.',{...settings,requireAI:true,preferExactCommands:false},settings.fetchImpl,{sceneId:scene.id,layerId:actor.id,time:1});
+assert.deepEqual(next.scenes[0].words,source.scenes[0].words);assert.deepEqual(next.captionStyle,source.captionStyle);assert.ok(JSON.stringify(next.scenes.slice(1))===JSON.stringify(source.scenes.slice(1)),'Selected edit changed another scene');assert.ok(next.lastEditAI?.model);assert.notDeepEqual(next.scenes[0].layers,source.scenes[0].layers);
+const report={model:next.lastEditAI.model,seconds:(performance.now()-begin)/1000,narrationAndCaptionsPreserved:true,operations:next.revisionHistory.at(-1).operations};fs.writeFileSync(path.join(folder,'trained.json'),JSON.stringify(report,null,2));console.log('PASS actual trained editing model applied a selected change',JSON.stringify(report));

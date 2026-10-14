@@ -1,0 +1,26 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {createBackend,root,run} from '../electron/backend.mjs';import {isBackPokemon} from '../electron/game-presentation.mjs';import {addMinecraftCues} from '../electron/minecraft-cues.mjs';
+const dir=path.join(root,'workspace/game-presentation-check'),backendDir=path.join(dir,'backend');fs.mkdirSync(dir,{recursive:true});
+const b=await createBackend({workspace:backendDir});
+try{
+ const voice=await b.importMedia(path.join(dir,'narration.wav'),{license:'Windows SAPI diagnostic narration',assetRole:'narration'});
+ const p=await b.generate({voiceId:voice.id,name:'Game presentation verification',model:'tiny.en',quality:'fast',pokemon:true,shortStyle:'pokemon-dense',videoMode:'youtube-shorts',gamePatterns:true,autoReactionGifs:true,autoPokemonCries:true,autoSoundEffects:true,localAnimatorEnabled:false,backgroundMode:'ai'},e=>console.log(e.stage));
+ assert.ok(p.scenes[0].layers.some(l=>l.role==='game-logo'&&l.start===0&&l.mediaId==='pokemon-brand-logo'),'Hook needs its real brand image immediately');
+ assert.ok(p.scenes.every(s=>s.layers.some(l=>l.role==='background'&&l.svg?.includes('game-pattern'))),'Pokemon patterns are missing');
+ assert.ok(p.pokemonMentions.some(m=>m.name==='pikachu'&&m.status==='ready'));
+ assert.ok(p.pokemonMentions.some(m=>m.name==='charizard'&&m.status==='ready'));
+ assert.ok(p.scenes.flatMap(s=>s.layers).filter(l=>l.role==='subject').every(l=>!isBackPokemon(p.media.find(m=>m.id===l.mediaId))));
+ const cue=p.reactionGifPlan.find(c=>c.kind==='fear');assert.ok(cue,'Actual scary narration must select an animated fear reaction');
+ const gif=p.media.find(m=>m.id===cue.mediaId);assert.ok(gif.animationInfo.animated&&gif.animationInfo.frameCount>1);assert.ok(p.scenes.some(s=>s.layers.some(l=>l.role==='reaction-gif'&&l.mediaId===gif.id)));
+ assert.ok(p.soundEffects.some(f=>f.cue==='chatter'&&f.start===cue.start));assert.ok(p.soundEffects.some(f=>f.cue==='pop'));assert.ok(p.soundEffects.some(f=>f.mediaId==='pokemon-menu-click-v1'));assert.ok(p.soundEffects.some(f=>f.cue==='pokemon-cry'));
+ p.musicId=undefined;p.musicVolume=0;fs.writeFileSync(path.join(dir,'project.gaming.json'),JSON.stringify(p,null,2));
+ const source=structuredClone(p);source.gamePresentationReport=undefined;source.reactionGifPlan=[];source.soundEffects=[];source.revisionHistory=[];source.revisionCursor=0;for(const s of source.scenes)s.layers=[];
+ fs.writeFileSync(path.join(dir,'repair-source.gaming.json'),JSON.stringify(source,null,2));const fixed=await b.remake(source,'',{useAI:false});assert.ok(fixed.scenes[0].layers.some(l=>l.mediaId==='pokemon-brand-logo'&&l.start===0));assert.ok(fixed.soundEffects.some(f=>f.cue==='chatter'));assert.deepEqual(fixed.scenes.map(s=>[s.start,s.end,s.words.map(w=>[w.text,w.start,w.end])]),source.scenes.map(s=>[s.start,s.end,s.words.map(w=>[w.text,w.start,w.end])]));assert.ok(b.undoRedo(fixed,'undo').scenes.every(s=>s.layers.length===0));
+ const output=await b.render(p,path.join(dir,'game-presentation.mp4'),e=>{if(e.percent===undefined)console.log(e.stage);});
+ const frames=[];for(const [label,time] of [['intro',.7],['intro-moving',2],['fear',cue.start+.35],['fear-moving',Math.min(cue.end-.1,cue.start+1.1)]]){const file=path.join(dir,label+'.png');await run('ffmpeg',['-v','error','-y','-ss',String(time),'-i',output.output,'-frames:v','1','-vf','scale=540:960',file]);frames.push(file);}
+ // Use the user's already-indexed official Minecraft version, fetching one real sound.
+ if(fs.existsSync(path.join(root,'workspace/minecraft/selected-version.json'))){const mcFolder=path.join(backendDir,'minecraft');fs.mkdirSync(mcFolder,{recursive:true});fs.cpSync(path.join(root,'workspace/minecraft/versions'),path.join(mcFolder,'versions'),{recursive:true});await b.minecraft.indexSounds('1.21.8');}
+ const mc={...source,topic:'minecraft',duration:6,media:source.media.filter(m=>m.id===source.voiceId),soundEffects:[],scenes:[{id:'mc',start:0,end:6,text:'Minecraft break stone blocks.',words:[{text:'Minecraft',start:0,end:.5},{text:'break',start:1,end:1.4},{text:'stone',start:1.5,end:1.9},{text:'blocks.',start:2,end:2.5}]}]};
+ const sounded=await addMinecraftCues(mc,{service:b.minecraft,progress:e=>console.log(e.stage)});assert.ok(sounded.minecraftSoundLog.some(e=>e.event==='block.stone.break'&&e.mediaId));const sound=sounded.media.find(m=>m.id===sounded.soundEffects[0].mediaId);assert.equal(sound.provider,'mojang-assets');assert.ok(fs.existsSync(sound.path));
+ fs.writeFileSync(path.join(dir,'verification.json'),JSON.stringify({realWhisper:p.transcriptionInfo,hookImage:true,movingPokemonPatterns:true,frontArtwork:true,actualAnimatedGif:{source:gif.attribution.source,...gif.animationInfo},matchingChatter:true,pops:true,sourceRenderedPokemonMenu:true,realPokemonCry:true,realMinecraftBlockBreak:{source:sound.attribution.source,event:sounded.minecraftSoundLog[0].event},repair:true,undo:true,narrationTimingPreserved:true,output:output.output,frames},null,2));console.log('PASS real speech, image hook, moving game pattern, front art, dog GIF + chatter, pops + Pokemon menu/cry, official Minecraft break, remake, Undo and MP4');
+}finally{b.close();}

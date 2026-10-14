@@ -1,0 +1,88 @@
+import {clipLayer} from './clip-layer.mjs';
+import {videoMode} from './video-modes.mjs';
+import {referenceActivityBrief} from './reference-activity.mjs';
+import {modelChat} from './inference-trace.mjs';
+import {analyzeReaction} from './reactions.mjs';
+import {PERFORMANCE_KINDS} from './actor-performances.mjs';
+import {validateCreativeActions,normalizeCreativeActions,CREATIVE_ACTION_SCHEMA} from './creative-actions.mjs';
+
+const motions=['none','slide-in-out','spring-pop','smooth-zoom','parallax','mask-reveal','emphasis'];
+const effects=['none','spotlight','particles'];
+const sounds=['none','whoosh','reveal','impact','click','victory'];
+const charts=['none','bars','line','ring'];
+export function validateEditorialPlan(scene,plan){
+ if(!plan||typeof plan!=='object')throw Error('No editorial recipe returned for '+scene.id);
+ if(!motions.includes(plan.motion)||!effects.includes(plan.effect)||!sounds.includes(plan.sound)||!charts.includes(plan.chart))throw Error('Unsupported editing recipe');
+ const metrics=scene.reaction?.metrics||[];
+ if(!Array.isArray(plan.metricIndexes)||plan.metricIndexes.length>6||plan.metricIndexes.some(i=>!Number.isInteger(i)||i<0||i>=metrics.length)||new Set(plan.metricIndexes).size!==plan.metricIndexes.length)throw Error('Chart references unsupported data');
+ const values=plan.metricIndexes.map(i=>metrics[i]);
+ if(plan.chart!=='none'&&(!values.length||values.some(m=>!Number.isFinite(m.value)||m.value<0)))throw Error('No usable narrated chart data');
+ if(plan.chart==='bars'&&values.some(m=>m.kind==='year'))throw Error('Calendar years are not comparable bar magnitudes');
+ if(plan.chart==='ring'&&(values.length!==1||values[0].kind!=='percentage'||values[0].value>100))throw Error('Ring charts require one real percentage');
+ if(['bars','line'].includes(plan.chart)&&new Set(values.map(m=>m.kind+':'+m.label)).size>1)throw Error('Chart cannot compare unrelated units');
+ if(plan.chart==='line'&&(values.some(m=>m.kind==='year')||values.length<3||!/(?:trend|over time|grew|rose|fell|increased|decreased|from.+to)/i.test(scene.text)))throw Error('Line graph needs at least 3 ordered values from a narrated trend with the same unit; selected '+values.length+' values');
+ const queries=(plan.visualQueries||[]).filter(q=>scene.reaction?.entities.some(e=>e.id===q.entityId)&&typeof q.query==='string'&&q.query.length<=160).slice(0,4);
+ const performances=[];for(const e of plan.performances||[]){
+  const quote=String(e.quote||'').toLowerCase().replace(/[^a-z0-9 ]/g,'').trim(),n=quote.split(/\s+/).length;
+  const actual=(scene.words||[]).slice(e.wordIndex,e.wordIndex+n).map(w=>w.text).join(' ').toLowerCase().replace(/[^a-z0-9 ]/g,'').trim();
+  if(performances.length>=3||!PERFORMANCE_KINDS.includes(e.kind)||!Number.isInteger(e.wordIndex)||e.wordIndex<0||!scene.words?.[e.wordIndex]||!quote||quote!==actual||e.actorId&&!scene.reaction?.entities.some(a=>a.mediaId===e.actorId))throw Error('Character performance lacks an exact narrated cue or established actor');
+  performances.push({...e,quote:String(e.quote).slice(0,160),reason:String(e.reason||'').slice(0,240)});
+ }
+ return {id:scene.id,chart:plan.chart,metricIndexes:[...plan.metricIndexes],motion:plan.motion,effect:plan.effect,sound:plan.sound,visualQueries:queries.map(q=>({entityId:q.entityId,query:q.query})),...(performances.length?{performances}:{}),creativeActions:validateCreativeActions(scene,normalizeCreativeActions(scene,plan.creativeActions||[])),reason:String(plan.reason||'').slice(0,800)};
+}
+export async function planEditorial(project,state,progress=()=>{},fetchImpl=fetch){
+ if(state.mode==='fast'||!state.models.reasoning)return project;
+ let previous;const scenes=project.scenes.map(s=>{const reaction=s.reaction||analyzeReaction(s,project,previous);previous=reaction;return {...s,reaction,editorialPlan:undefined,editorialPlanApplied:false};});
+ const report={model:state.models.reasoning.name,scenes:[],warnings:[],corrections:[]};
+ for(let offset=0;offset<scenes.length;offset+=1){
+  if(state.signal.aborted)throw Error('Processing cancelled');const batch=scenes.slice(offset,offset+1);
+  progress({stage:`Authoring editing recipes ${offset+1}–${Math.min(offset+1,scenes.length)}/${scenes.length}: ${report.model}`});
+  try{
+   const result=await modelChat(state,state.models.reasoning,[{role:'system',content:'You are an experienced gaming video editor. Treat each passage as setup, action and payoff. Carry the lead character and props through the explanation; establish threats briefly, then remove them after the action. Seek visual irony in the whole sentence rather than literal decoration of single words. Optional performances can act out doubt, reveal, swagger, payoff, deflate, double-take, panic or faceplant with the existing actor. Use a short double-take on a surprising claim, a nervous shuffle for impending disaster and a comic stumble after a narrated failed plan. Choose comic contrast and setup/payoff from the full context. Avoid repeating the same gag; carry attached props and leave facts readable. Give up to 3 performances {kind,wordIndex,quote,actorId?,reason}, timed to an exact raw-word quote and actor mediaId. Let a comic anticipation happen before its result, leave space to read the result, and avoid unrelated memes over stats or gameplay. Humor comes from the narrated premise, without rewriting speech or inventing claims. Design optional creativeActions from the FULL sentence meaning, including idioms and visual irony; you are not limited to a list of keywords. Each action has exact quote, wordIndex, duration (0.4-3 seconds), reason, props and tracks. Props have id, literal Google image query, attachTo (existing entity ID), anchor head/neck/hand/near and size 0.08-0.4. Tracks target an entity ID or prop ID, and specify keyframes {at:seconds after the cue,dx,dy,scale,rotation,opacity}. dx/dy are normalized relative offsets capped at 0.4; scale is relative and rotation is degrees. detachAt lets a prop stop following the actor and fly along its path. Establish a prop briefly before its payoff. Keep actors recognizable, avoid covering captions/evidence, and use no emojis or invented images. Keep the factual subject and narration unchanged. Follow the supplied sentence-importance plan and YouTube format rules. Illustrate concrete subjects, actions, comparisons and evidence; connecting speech should retain context. Resolve pronouns to the established subject. Do not decorate every word or use unrelated pictures, particles or sound accents to fill time. Choose image queries only when they explain an important phrase; explain the specific purpose of every change. Return executable editorial recipes, one for every supplied scene. Choose a meaningful chart only when supplied metric data supports it: bars compare same units, line requires 3+ chronological values and an explicit trend, ring is a single percentage. Do not invent numbers. metricIndexes refer to supplied metrics, never values you invent. Otherwise chart:none and metricIndexes:[]. Use existing entity IDs in visualQueries, choosing exact game screenshots or artwork queries relevant to the narration; do not substitute other characters or forms. Choose motion for the narrative beat, a restrained spotlight or particles only when useful, and a suitable sound accent. Respect instructions requesting no effects, restrained motion or no sounds. Explain the concrete editing purpose in reason. Always output all scene IDs exactly.'},{role:'user',content:JSON.stringify({creativePassId:project.creativePassId,presentation:project.editVersion,instructions:project.editingInstructions,referenceActivity:referenceActivityBrief(),gameSelection:project.gameSelection,youtubeStrategy:project.youtubeStrategy?{rules:project.youtubeStrategy.rules,recommendationBasis:project.youtubeStrategy.recommendationBasis,sentences:project.youtubeStrategy.sentences.filter(s=>batch.some(b=>b.id===s.sceneId))}:undefined,attentionStrategy:project.attentionPlan?{strategy:project.attentionPlan.strategy,targetInterval:2,basis:project.attentionPlan.basis,beats:project.attentionPlan.beats.filter(b=>batch.some(s=>s.id===b.sceneId))}:undefined,videoMode:videoMode(project),format:project.format,scenes:batch.map(s=>({id:s.id,text:s.text,previousCreativePlan:project.previousCreativePlans?.find(p=>p.sceneId===s.id)?.plan,words:s.words.map((w,wordIndex)=>({wordIndex,text:w.text,start:w.start})),previousContext:scenes[offset-1]?.text,nextContext:scenes[offset+1]?.text,entities:s.reaction.entities.map(e=>({id:e.id,name:e.name,type:e.type,mediaId:e.mediaId})),metrics:s.reaction.metrics.map((m,index)=>({index,value:m.value,unit:m.label,kind:m.kind,source:m.source,start:m.start}))}))})}],{fetchImpl,stage:'editorial-authoring',maxOutputTokens:2600,format:{type:'object',additionalProperties:false,required:['scenes'],properties:{scenes:{type:'array',minItems:batch.length,maxItems:batch.length,items:{type:'object',additionalProperties:false,required:['id','chart','metricIndexes','motion','effect','sound','visualQueries','reason'],properties:{id:{type:'string',enum:batch.map(s=>s.id)},chart:{enum:charts},metricIndexes:{type:'array',maxItems:6,items:{type:'integer'}},motion:{enum:motions},effect:{enum:effects},sound:{enum:sounds},visualQueries:{type:'array',maxItems:4,items:{type:'object',required:['entityId','query'],properties:{entityId:{type:'string'},query:{type:'string'}}}},creativeActions:CREATIVE_ACTION_SCHEMA,performances:{type:'array',maxItems:3,items:{type:'object',additionalProperties:false,required:['kind','wordIndex','quote','reason'],properties:{kind:{enum:PERFORMANCE_KINDS},wordIndex:{type:'integer',minimum:0},quote:{type:'string',maxLength:160},actorId:{type:'string'},reason:{type:'string',maxLength:240}}}},reason:{type:'string',maxLength:800}}}}}}});
+   if(!Array.isArray(result.scenes)||result.scenes.length!==batch.length||new Set(result.scenes.map(s=>s.id)).size!==batch.length||result.scenes.some(s=>!batch.some(b=>b.id===s.id))){const event=state.inferenceEvents?.at(-1);if(event){event.accepted=false;event.reason='Incomplete editorial scene plan';}report.warnings.push('Incomplete batch response; correcting each missing scene');result.scenes=Array.isArray(result.scenes)?result.scenes:[];}
+   for(const s of batch){
+    const proposed=result.scenes.find(r=>r.id===s.id);
+    try{s.editorialPlan=validateEditorialPlan(s,proposed);}
+    catch(e){
+     const event=state.inferenceEvents?.at(-1);if(event){event.accepted=false;event.reason='Rejected editorial recipe: '+e.message;}
+     progress({stage:'Correcting unsupported editing recipe: '+s.id});
+     try{
+      const corrected=await modelChat(state,state.models.reasoning,[{role:'system',content:'Repair the invalid editing recipe. Return JSON {scenes:[recipe]} for exactly this scene. Preserve requested effects and motion. Use only supplied metric indices. A line requires at least three same-unit values from the ordered narrated trend; include all relevant supplied indices. A ring requires exactly one percentage. Bars must compare same-unit values. Choose chart:none with empty metricIndexes if unsupported. Supported motion: '+motions.join(',')+'; effects: '+effects.join(',')+'; sound: '+sounds.join(',')+'. Preserve all required fields id,chart,metricIndexes,motion,effect,sound,visualQueries,reason and creativeActions. Repair the creative action when it is the rejected field: exact quote and wordIndex must match the supplied raw words, actor targets/attachTo must use supplied entity IDs, prop track targets use prop IDs, detachAt and all keyframe at values stay within duration, dx/dy stay within -0.4 to 0.4. Keep the intended narrated gag; do not discard it just to fix a field.'},{role:'user',content:JSON.stringify({instructions:project.editingInstructions,scene:{id:s.id,text:s.text,words:s.words.map((w,wordIndex)=>({wordIndex,text:w.text,start:w.start})),entities:s.reaction.entities,metrics:s.reaction.metrics.map((m,index)=>({index,...m}))},rejected:proposed,validationError:e.message})}],{fetchImpl,stage:'editorial-correction',maxOutputTokens:2600});
+      if(corrected.scenes?.length!==1||corrected.scenes[0].id!==s.id)throw Error('Correction changed scene identity');
+      s.editorialPlan=validateEditorialPlan(s,corrected.scenes[0]);report.corrections.push({sceneId:s.id,reason:e.message,accepted:true});
+     }catch(error){if(state.signal.aborted)throw error;report.warnings.push(s.id+': '+error.message);const last=state.inferenceEvents?.at(-1);if(last){last.accepted=false;last.reason=error.message;}report.corrections.push({sceneId:s.id,reason:error.message,accepted:false});}
+    }
+    if(s.editorialPlan)report.scenes.push({id:s.id,...s.editorialPlan});
+   }
+  }catch(e){if(state.signal.aborted)throw e;report.warnings.push('Editorial authoring: '+e.message);const event=state.inferenceEvents?.at(-1);if(event){event.accepted=false;event.reason=e.message;}}
+ }
+ state.limitations.push(...report.warnings);return {...project,scenes,editorialReport:report};
+}
+export function applyEditorialPlan(project){
+ return {...project,scenes:project.scenes.map(scene=>{
+  if(!scene.editorialPlan)return scene;let plan;try{plan=validateEditorialPlan(scene,scene.editorialPlan);}catch{return scene;}
+  const locked=(scene.layers||[]).filter(l=>l.manual||l.instructionLocked),source=scene.editorialChartSourceLayers?[...scene.editorialChartSourceLayers.filter(l=>!locked.some(p=>p.id===l.id)),...locked]:scene.layers||[];
+  const s={...scene,layers:source.filter(l=>!l.id.startsWith(scene.id+'-editorial-')).map(l=>({...l}))},vertical=project.format!=='horizontal';delete s.editorialChartSourceLayers;let n=0;
+  const add=(type,props)=>{const l={id:s.id+'-editorial-'+n++,type,role:'editorial-effect',x:.08,y:.30,width:.84,height:.40,z:45,start:s.start,end:s.end,animation:'fade',enter:'fade',exit:'fade',entranceDuration:.35,exitDuration:.2,...props};s.layers.push(l);return l;};
+  for(const l of s.layers){if(l.manual||l.instructionLocked||l.role!=='subject')continue;l.animation=plan.motion;l.animationAmount=plan.motion==='parallax'?.035:.07;l.entranceDuration=Math.min(.65,(l.end-l.start)*.25);}
+  const clean=/\b(?:no|without|avoid)\s+(?:visual\s+)?(?:effects|particles)/i.test(project.editingInstructions||'');
+  if(!clean&&plan.effect==='particles')add('particles',{role:'particles',x:0,y:0,width:1,height:1,z:6,particleCount:18,color:'#8affcb'});
+  if(!clean&&plan.effect==='spotlight')add('svg',{role:'environment-depth',x:0,y:0,width:1,height:1,z:5,animation:'smooth-zoom',animationAmount:.04,svg:'<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920"><defs><radialGradient id="g"><stop stop-color="#8affcb" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs><ellipse cx="540" cy="780" rx="520" ry="700" fill="url(#g)"/></svg>'});
+  if(plan.chart!=='none'){
+   const data=plan.metricIndexes.map(i=>s.reaction.metrics[i]);
+   const cue=m=>Number.isFinite(m.start)?m.start:s.start,chartStart=Math.max(s.start,plan.chart==='line'?cue(data.at(-1)):Math.min(...data.map(cue))),chartEnd=Math.min(s.end,Math.max(chartStart+3,...data.map(m=>cue(m)+3)));
+   s.editorialChartSourceLayers=structuredClone(s.layers);s.layers=s.layers.filter(l=>l.manual||l.instructionLocked||!['chart','stat-value','stat-label','verification'].includes(l.role));
+   // Chart staging starts at its narrated data cue; preserve the opening cast and later recovery.
+   s.layers=s.layers.flatMap(l=>{if(l.manual||l.instructionLocked||l.role!=='subject'||l.end<=chartStart||l.start>=chartEnd)return [l];const a=Math.max(l.start,chartStart),b=Math.min(l.end,chartEnd),context={...clipLayer(l,a,b),id:l.start<a?s.id+'-editorial-context-'+l.id:l.id,actorSourceId:l.id,x:.06,y:.08,width:.22,height:vertical?.16:.25,keyframes:undefined,animation:'none',exit:'none'};return [...(l.start<a?[clipLayer(l,l.start,a)]:[]),context,...(l.end>b?[{...clipLayer(l,b,l.end),id:l.id+'-after-editorial',actorSourceId:l.id,referenceContinuation:true,animation:'none'}]:[])];});
+   const chartLayer=(type,props)=>add(type,{start:chartStart,end:chartEnd,...props});
+   const max=Math.max(1,...data.map(m=>m.value)),label=m=>[s.reaction.entities.find(e=>e.id===m.entityId)?.name,m.label].filter(Boolean).join(' · ');
+   chartLayer('shape',{role:'chart-panel',x:.05,y:.29,width:.9,height:.48,color:'#0c1526',opacity:.94,z:30});
+   if(plan.chart==='ring'){chartLayer('ring',{role:'chart',x:.22,y:.34,width:.56,height:vertical?.31:.4,value:data[0].value,label:label(data[0]),color:'#8affcb',start:Math.max(s.start,data[0].start)});chartLayer('text',{role:'stat-label',text:label(data[0]),x:.1,y:.68,width:.8,height:.035});}
+   else if(plan.chart==='line'){chartLayer('line',{role:'chart',points:data.map(m=>m.value),labels:data.map(m=>String(m.value)),x:.09,y:.35,width:.82,height:.33,color:'#8affcb',start:Math.max(s.start,data.at(-1).start)});chartLayer('text',{role:'stat-label',text:'Narrated trend · '+data[0].label,x:.1,y:.70,width:.8,height:.026});}
+   else data.forEach((m,i)=>{const y=.34+i*.36/data.length,start=Math.max(s.start,m.start);chartLayer('text',{role:'stat-label',text:label(m)+'  '+m.value,x:.09,y,width:.82,height:Math.min(.036,.16/data.length),start});chartLayer('bar',{role:'chart',x:.09,y:y+.045,width:.82,height:.026,value:m.value/max*100,color:i%2?'#72a9ff':'#8affcb',start,entranceDuration:.7});});
+   chartLayer('text',{role:'chart-source',text:'Source: '+(data.every(m=>m.source==='pokeapi')?'PokéAPI verified stats':'values stated in narration'),x:.09,y:.735,width:.82,height:.018,color:'#a7bdd5'});
+   s.compositionFamily='editorial-'+plan.chart;
+  }
+  s.editorialPlanApplied=true;return s;
+ })};
+}

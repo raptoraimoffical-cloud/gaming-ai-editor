@@ -1,0 +1,23 @@
+const {app,BrowserWindow,ipcMain}=require('electron');
+const path=require('node:path');
+app.whenReady().then(async()=>{
+ ipcMain.handle('library',()=>[]);
+ ipcMain.handle('local-ai-key-status',()=>({configured:false}));
+ ipcMain.handle('director-settings',()=>({url:'http://127.0.0.1:11535',model:''}));
+ ipcMain.handle('pokemon-games',()=>[{id:'pokemon-showdown',name:'Pokémon Showdown'}]);
+ ipcMain.handle('pokeos-archive',()=>({total:1,files:[{id:'pikachu',name:'Champions pikachu',url:'data:image/png;base64,iVBORw0KGgo=',archive:{variant:'default',speciesId:'25'}}]}));
+ const win=new BrowserWindow({show:false,webPreferences:{preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true}});
+ await win.loadFile(path.join(__dirname,'../dist/index.html'));
+ const js=s=>win.webContents.executeJavaScript(s);
+ const click=label=>js(`Array.from(document.querySelectorAll('button')).find(b=>b.textContent===${JSON.stringify(label)}).click()`);
+ await click('Pokémon Logos & Assets');await js('new Promise(r=>setTimeout(r,200))');
+ if(!await js(`document.querySelector('select[aria-label="Pokémon game logo"]')?.options[0]?.text==='Pokémon Showdown'`))throw Error('Game selector missing');
+ await click('Browse / search archive');await js('new Promise(r=>setTimeout(r,100))');
+ if(!await js(`document.body.innerText.includes('Champions pikachu')`))throw Error('Champions browser failed');
+ await click('Settings');await js('new Promise(r=>setTimeout(r,100))');
+ if(!await js(`Array.from(document.querySelectorAll('option')).some(o=>o.value==='google-images')&&typeof window.googleImages.browse==='function'`))throw Error('Google integration missing');
+ await click('Edit');await js('new Promise(r=>setTimeout(r,100))');
+ await click('Generate / new edit');await js('new Promise(r=>setTimeout(r,100))');
+ if(!await js(`Array.from(document.querySelectorAll('label')).some(l=>l.textContent.includes('Add sound effects')&&l.querySelector('input')?.checked)`))throw Error('Automatic sound toggle missing');
+ console.log('PASS desktop game logos, Champions archive, Google search and automatic sound controls');win.destroy();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});

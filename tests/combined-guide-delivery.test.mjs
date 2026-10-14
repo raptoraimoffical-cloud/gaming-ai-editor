@@ -1,0 +1,27 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {resolveCreationBrief} from '../electron/creation-brief.mjs';import {extractAudioScript} from '../electron/scene-blueprint.mjs';import {DEFAULT_INSTRUCTIONS} from '../electron/default-instructions.mjs';import {auditVisualDelivery} from '../electron/visual-delivery.mjs';
+const guide=fs.readFileSync(new URL('./fixtures/eric-rios-scene-blueprint.txt',import.meta.url),'utf8');
+test('the full production guide pasted into optional Script retains every scene and team instruction without aligning notes as speech',()=>{
+ const n=resolveCreationBrief({script:guide,editingInstructions:DEFAULT_INSTRUCTIONS});assert.equal(n.script,extractAudioScript(guide));assert.equal(n.editingInstructions,guide);assert.equal(n.creationBriefReport.sceneInstructions,12);assert.equal(n.creationBriefReport.suppliedTeamMembers,6);assert.equal(n.creationBriefReport.combinedGuideDetected,true);assert.ok(!n.script.includes('Stat Points:'));
+});
+test('spoken-only scripts and explicit custom directions retain their purpose',()=>{
+ const n=resolveCreationBrief({script:'Eric Rios used this team.',editingInstructions:'Keep the uploaded blue background.'});assert.equal(n.script,'Eric Rios used this team.');assert.equal(n.editingInstructions,'Keep the uploaded blue background.');assert.equal(n.creationBriefReport.combinedGuideDetected,false);
+ const full=resolveCreationBrief({script:guide,editingInstructions:'Keep captions unchanged.'});assert.ok(full.editingInstructions.endsWith('Keep captions unchanged.'));assert.equal(full.script,extractAudioScript(guide));assert.equal(resolveCreationBrief({script:guide,editingInstructions:guide}).editingInstructions,guide);
+});
+test('combined guides support ordinary narration headings and scene-only directions without feeding direction text into captions',()=>{
+ const n=resolveCreationBrief({script:'# NARRATION\n"This is a new strategy."\n# VISUAL STYLE\nUse relevant source pictures.'});assert.equal(n.script,'This is a new strategy.');assert.match(n.editingInstructions,/relevant source pictures/);assert.equal(n.creationBriefReport.combinedGuideDetected,true);
+ const scene=resolveCreationBrief({script:'## SCENE 1 — REVEAL\n**Voiceover:** "This is a new strategy."\nVISUAL: Show the actual team.'});assert.equal(scene.script,'');assert.equal(scene.creationBriefReport.sceneInstructions,1);assert.equal(scene.creationBriefReport.combinedGuideDetected,true);assert.match(scene.editingInstructions,/Show the actual team/);
+});
+const image=(id,mediaId,start=0,end=8,extra={})=>({id,type:'image',role:'subject',mediaId,start,end,x:.1,y:.15,width:.5,height:.4,z:10,animation:'none',exit:'none',...extra});
+const project=()=>({duration:8,format:'vertical',fps:30,voiceId:'voice',editingInstructions:'',media:[{id:'voice',kind:'audio'},{id:'photo',kind:'image'},{id:'logo',kind:'image',assetRole:'logo'}],scenes:[{id:'s',start:0,end:8,text:'Eric Rios won.',words:[],layers:[image('photo-layer','photo'),image('logo-layer','logo',0,8,{role:'game-logo'})]}]});
+test('downloaded but excluded or microscopic photos cannot satisfy a person-picture request',()=>{
+ const p=project();p.visualInstructionPlan=[{kind:'image',name:'Eric Rios'}];p.visualInstructionReport={applied:[{kind:'image',name:'Eric Rios',start:0,end:8,layerIds:['photo-layer']}]};assert.equal(auditVisualDelivery(p).complete,true);
+ p.scenes[0].layers[0].excludedRanges=[{start:0,end:8}];const hidden=auditVisualDelivery(p);assert.equal(hidden.complete,false);assert.deepEqual(hidden.logoOnlySpans,[{start:0,end:8}]);delete p.scenes[0].layers[0].excludedRanges;p.scenes[0].layers[0].width=.01;p.scenes[0].layers[0].height=.01;assert.equal(auditVisualDelivery(p).complete,false);
+});
+test('the complete team, items and supplied facts must appear together, including framed source derivatives',()=>{
+ const p=project(),members=[{name:'First',item:'Orb',facts:['Level 50','SP: 17 HP']},{name:'Second',item:'Berry',facts:['Level 50','Moves: Protect']}];p.media.push({id:'first',kind:'image'},{id:'first-framed',kind:'image',artworkFraming:{sourceId:'first'}},{id:'second',kind:'image'},{id:'orb',kind:'image'},{id:'berry',kind:'image'});p.visualInstructionPlan=[{kind:'group',name:'Full team',members}];p.visualInstructionReport={applied:[{kind:'group',name:'Full team',start:0,end:8,members:[{name:'First',mediaId:'first',itemId:'orb'},{name:'Second',mediaId:'second',itemId:'berry'}]}]};p.scenes[0].layers=[image('a','first-framed'),image('b','second'),image('c','orb'),image('d','berry'),{id:'facts',type:'text',text:'Level 50 / SP: 17 HP / Moves: Protect',start:0,end:8}];assert.equal(auditVisualDelivery(p).complete,true);
+ p.scenes[0].layers[1].start=5;p.scenes[0].layers[0].end=4;assert.equal(auditVisualDelivery(p).complete,false);p.scenes[0].layers[1].start=0;p.scenes[0].layers[0].end=8;p.scenes[0].layers.pop();assert.equal(auditVisualDelivery(p).complete,false);
+});
+test('real data graphics are meaningful visuals, and missing storyboard sources remain disclosed',()=>{
+ const p=project();p.scenes[0].layers=p.scenes[0].layers.filter(l=>l.id==='logo-layer');p.scenes[0].layers.push({id:'data',type:'bar',role:'chart',value:1129,start:0,end:8});assert.deepEqual(auditVisualDelivery(p).logoOnlySpans,[]);p.sceneBlueprintReport={applied:[],missing:[{kind:'background',reason:'No matching arena source was available'}]};assert.equal(auditVisualDelivery(p).complete,false);assert.match(auditVisualDelivery(p).missing[0].reason,/arena source/);
+});

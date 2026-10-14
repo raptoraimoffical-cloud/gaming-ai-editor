@@ -1,0 +1,37 @@
+import {identifyPokemon} from './pokemon-names.mjs';
+const normalize=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+export const thumbnailKey=a=>{const name=String(a.name||''),words=name.split(/\s+/).map((text,i)=>({text,start:i,end:i+1})),m=!['item','object','game'].includes(a.type)&&identifyPokemon(words,undefined,{pokemonContext:true}).find(m=>m.status==='identified'&&normalize(m.spoken)===normalize(name));return m?m.name:normalize(name);};
+export function readThumbnailBrief(instructions,script=''){
+ const text=String(instructions||''),words=text.split(/\s+/).map((text,i)=>({text,start:i,end:i+1}));
+ const assets=[...new Map(identifyPokemon(words,undefined,{pokemonContext:true}).filter(m=>m.status==='identified'&&!/\b(?:no|without|avoid|exclude|remove|delete|hide|not|don't|do not)\s+(?:the |regular |normal )?$/i.test(words.slice(Math.max(0,m.start-4),m.start).map(w=>w.text).join(' ')+' ')).map(m=>[m.name,{name:m.name,query:'Pokemon '+m.name.replaceAll('-',' ')+' official artwork',type:'pokemon',sourceKind:'original',role:'support',required:true}])).values()];
+ const quoted=[...text.matchAll(/["\u201c]([^"\u201d\n]{1,75})["\u201d]/g)].map(m=>({text:m[1].trim(),before:text.slice(Math.max(0,m.index-90),m.index)})).filter(m=>/\b(text|headline|title|label|caption|read|says?)\b/i.test(m.before));
+ const secondary=quoted.find(m=>/\b(smaller|small|secondary|subheading|subtitle|above (?:it|the (?:text|headline)))\b/i.test(m.before.split(/[.;]/).at(-1))),headline=quoted.find(m=>m!==secondary);
+ const mystery=/\b(?:mystery|mysterious|anonymous|unknown|silhouett(?:e|ed)|blacked[- ]out)\b/i.test(text),trainer=/\btrainer(?:\s+sprite)?\b/i.test(text)&&!/\b(?:remove|delete|exclude|no|without) (?:the |a |mystery )?trainer\b/i.test(text),silhouette=/\b(?:silhouett(?:e|ed)|blacked[- ]out|completely black|(?:turn|make)(?:ed)? .{0,35}\bblack)\b/i.test(text),question=/\bquestion[- ]?mark\b/i.test(text)&&!/\b(?:remove|delete|no|without) (?:the |a )?question[- ]?mark\b/i.test(text);
+ if(trainer)assets.unshift({name:'Pokemon trainer',query:'Pokemon trainer original game sprite transparent',type:'character',sourceKind:'trainer',...(/\b(center|centre|main focus|focus|central)\b/i.test(text)||mystery?{role:'focus'}:{}),required:true,transform:{...(silhouette||mystery?{silhouette:true}:{}),...(question?{questionMark:true}:{}),cutout:true}});
+ const game=/\bpok[e\u00e9]mon|champions\b/i.test(text)||assets.some(a=>a.type==='pokemon')?'Pokemon Champions':/\bminecraft\b/i.test(text)?'Minecraft':/\bfortnite\b/i.test(text)?'Fortnite':'';
+ const background=/\b(?:arena|stadium|tournament)\b/i.test(text)?{kind:'arena',query:(game+' battle arena background').trim(),prompt:'A detailed tournament stadium with dramatic floodlights, glowing battle floor, atmospheric depth and clear central space for foreground subjects. No text or foreground characters.'}:undefined;
+ return {assets,headline:headline?.text,secondaryText:secondary?.text,mystery,question,silhouette,background};
+}
+export function enforceThumbnailBrief(plan,brief,{headline,nonce}={}){
+ const p=structuredClone(plan),assets=[...p.assets];
+ for(const required of brief.assets){const index=assets.findIndex(a=>thumbnailKey(a)===thumbnailKey(required)||required.sourceKind==='trainer'&&/trainer|mystery person/i.test(a.name));if(index>=0)assets[index]={...assets[index],...required,role:required.role==='support'?(assets[index].role||'support'):required.role||assets[index].role,transform:{...assets[index].transform,...required.transform}};else assets.push(required);}
+ const explicitFocus=brief.assets.find(a=>a.role==='focus');if(explicitFocus){const focusKey=thumbnailKey(explicitFocus);for(const a of assets)if(a.role==='focus'&&thumbnailKey(a)!==focusKey)a.role='support';}
+ // A requested central figure is a role with an executable edit, not a search
+ // for an already-finished "mystery trainer" picture.
+ if(brief.silhouette&&!brief.assets.some(a=>a.sourceKind==='trainer')){const keys=new Set(brief.assets.map(thumbnailKey)),targets=keys.size?assets.filter(a=>keys.has(thumbnailKey(a))):[assets.find(a=>a.role==='focus')||assets.find(a=>a.type!=='item')].filter(Boolean);for(const focus of targets)focus.transform={...focus.transform,silhouette:true,...(brief.question?{questionMark:true}:{}),cutout:true};}
+ p.assets=assets;p.headline=String(headline?.trim()||brief.headline||p.headline||'');if(brief.secondaryText)p.secondaryText=brief.secondaryText;
+ if(brief.background)p.background={...p.background,...brief.background};if(assets.some(a=>a.role==='focus')&&assets.length>2)p.layout='surround';p.variantId=nonce;
+ return p;
+}
+export function applyThumbnailEdit(plan,instructions){
+ const p=structuredClone(plan),text=String(instructions),key=normalize(text),quotes=[...text.matchAll(/["\u201c]([^"\u201d]{1,100})["\u201d]/g)].map(m=>m[1]);
+ if(/\b(?:replace|change)\b/i.test(text)&&quotes.length===2&&/\b(?:with|to)\b/i.test(text)){for(const field of ['headline','secondaryText'])if(p[field]===quotes[0])p[field]=quotes[1];if(p.textLayers)p.textLayers=p.textLayers.map(l=>l.text===quotes[0]?{...l,text:quotes[1]}:l);}
+ if(/\b(?:remove|delete|hide) (?:the )?(?:subtitle|subheading|secondary text|smaller text)\b/i.test(text)){p.textLayers=p.textLayers?.filter(l=>normalize(l.text)!==normalize(p.secondaryText));p.secondaryText='';}
+ if(/\b(?:remove|delete|hide) (?:the )?(?:headline|title|main text)\b/i.test(text)){p.textLayers=p.textLayers?.filter(l=>normalize(l.text)!==normalize(p.headline));p.headline='';}
+ const colors={white:'#ffffff',yellow:'#fff23d',red:'#ff423b',blue:'#6fdcff',green:'#6affaa'},colorTarget=['headline','main text','title',p.headline].filter(Boolean).map(s=>s.replace(/[.*+?^$()|[\]\\]/g,'\\$&')).join('|');for(const [name,value] of Object.entries(colors))if(new RegExp('(?:'+colorTarget+').{0,30}\\b'+name+'\\b','i').test(text))p.headlineColor=value;
+ const words=text.split(/\s+/).map((text,i)=>({text,start:i,end:i+1})),removed=new Set(identifyPokemon(words,undefined,{pokemonContext:true}).filter(m=>m.status==='identified'&&/\b(?:remove|delete|exclude|hide)\s+(?:the )?$/i.test(words.slice(Math.max(0,m.start-3),m.start).map(w=>w.text).join(' ')+' ')).map(m=>m.name));
+ const removeTrainer=/\b(?:remove|delete|exclude|hide) (?:the |a |mystery )?trainer\b/i.test(text);p.assets=p.assets.filter(a=>{const name=normalize(thumbnailKey(a));return !(removeTrainer&&a.sourceKind==='trainer')&&!removed.has(thumbnailKey(a))&&!new RegExp('\\b(?:remove|delete|exclude|hide) (?:the )?'+name.replaceAll(' ','[ -]+')+'\\b','i').test(key);});
+ const requested=readThumbnailBrief(text).assets,targets=p.assets.filter(a=>requested.some(r=>thumbnailKey(r)===thumbnailKey(a))||(requested.length===0&&a.role==='focus'));
+ for(const a of targets){a.transform={...a.transform};if(/\b(?:add|put|place|give)\b.{0,35}\bquestion[- ]?mark\b/i.test(text))a.transform.questionMark=true;if(/\b(?:remove|delete|no|without) (?:the |a )?question[- ]?mark\b/i.test(text))a.transform.questionMark=false;if(/\b(?:show|restore) (?:the |its |their )?colou?rs?|\bunmask\b|\bno silhouette\b/i.test(text))a.transform.silhouette=false;if(/\b(?:mirror|flip)\b/i.test(text))a.transform.flipX=!a.transform.flipX;if(/\b(?:grayscale|greyscale|black and white)\b/i.test(text))a.transform.grayscale=true;const angle=/\brotate\b.{0,60}?(-?\d+)\s*(?:degrees?|\u00b0)/i.exec(text);if(angle)a.transform.rotation=Math.max(-180,Math.min(180,Number(angle[1])));}
+ return p;
+}

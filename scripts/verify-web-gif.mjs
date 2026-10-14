@@ -1,0 +1,12 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {PNG} from 'pngjs';
+import {createBackend,root,run} from '../electron/backend.mjs';
+const folder=path.join(root,'workspace/google-gif-render-check');fs.mkdirSync(folder,{recursive:true});const backend=await createBackend({workspace:path.join(folder,'backend')});
+try{
+ const asset=await backend.webImages.importUrl('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif',{name:'Pokemon Pikachu animated sprite',query:'Pikachu animated GIF'});assert.ok(asset.animationInfo.animated);assert.equal(asset.animationInfo.frameCount,33);
+ const voiceFile=path.join(folder,'silence.wav');await run('ffmpeg',['-v','error','-y','-f','lavfi','-i','anullsrc=r=8000:cl=mono','-t','2',voiceFile]);const voice=await backend.importMedia(voiceFile,{license:'Local diagnostic silence'});
+ const p={id:'web-gif-check',name:'Original GIF motion check',voiceId:voice.id,duration:2,format:'vertical',musicVolume:0,captionColor:'#fff',media:[voice,asset],scenes:[{id:'s',start:0,end:2,text:'Pikachu animated sprite',words:[],layers:[{id:'bg',type:'shape',role:'background',x:0,y:0,width:1,height:1,z:0,start:0,end:2,color:'#173149'},{id:'sprite',type:'image',role:'subject',mediaId:asset.id,x:.15,y:.2,width:.7,height:.6,z:1,start:0,end:2,animation:'none',enter:'none',exit:'none',scale:1}]}]};
+ await backend.render(p,path.join(folder,'real-pikachu-gif.mp4'));const frames=[];
+ for(const [i,time] of [.08,.64].entries()){const file=path.join(folder,'frame-'+i+'.png');await run('ffmpeg',['-v','error','-y','-ss',String(time),'-i',path.join(folder,'real-pikachu-gif.mp4'),'-frames:v','1',file]);frames.push(PNG.sync.read(fs.readFileSync(file)).data);}
+ let changed=0;for(let i=0;i<frames[0].length;i+=4)if(Math.abs(frames[0][i]-frames[1][i])+Math.abs(frames[0][i+1]-frames[1][i+1])+Math.abs(frames[0][i+2]-frames[1][i+2])>50)changed++;assert.ok(changed>10000,'The real GIF must animate in the exported MP4');
+ fs.writeFileSync(path.join(folder,'verification.json'),JSON.stringify({source:'Direct PokeAPI repository original; not a Google search',originalUrl:asset.originalUrl,decoded:true,animation:asset.animationInfo,changedPixels:changed,output:path.join(folder,'real-pikachu-gif.mp4')},null,2));console.log('PASS real 33-frame Pikachu GIF stays animated in Remotion MP4',changed);
+}finally{backend.close();}

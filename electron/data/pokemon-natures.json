@@ -1,0 +1,180 @@
+{
+  "source": "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/natures.csv",
+  "natures": [
+    {
+      "name": "hardy",
+      "title": "Hardy",
+      "increased": null,
+      "decreased": null,
+      "mint": "serious-mint"
+    },
+    {
+      "name": "bold",
+      "title": "Bold",
+      "increased": "Defense",
+      "decreased": "Attack",
+      "mint": "bold-mint"
+    },
+    {
+      "name": "modest",
+      "title": "Modest",
+      "increased": "Sp. Atk",
+      "decreased": "Attack",
+      "mint": "modest-mint"
+    },
+    {
+      "name": "calm",
+      "title": "Calm",
+      "increased": "Sp. Def",
+      "decreased": "Attack",
+      "mint": "calm-mint"
+    },
+    {
+      "name": "timid",
+      "title": "Timid",
+      "increased": "Speed",
+      "decreased": "Attack",
+      "mint": "timid-mint"
+    },
+    {
+      "name": "lonely",
+      "title": "Lonely",
+      "increased": "Attack",
+      "decreased": "Defense",
+      "mint": "lonely-mint"
+    },
+    {
+      "name": "docile",
+      "title": "Docile",
+      "increased": null,
+      "decreased": null,
+      "mint": "serious-mint"
+    },
+    {
+      "name": "mild",
+      "title": "Mild",
+      "increased": "Sp. Atk",
+      "decreased": "Defense",
+      "mint": "mild-mint"
+    },
+    {
+      "name": "gentle",
+      "title": "Gentle",
+      "increased": "Sp. Def",
+      "decreased": "Defense",
+      "mint": "gentle-mint"
+    },
+    {
+      "name": "hasty",
+      "title": "Hasty",
+      "increased": "Speed",
+      "decreased": "Defense",
+      "mint": "hasty-mint"
+    },
+    {
+      "name": "adamant",
+      "title": "Adamant",
+      "increased": "Attack",
+      "decreased": "Sp. Atk",
+      "mint": "adamant-mint"
+    },
+    {
+      "name": "impish",
+      "title": "Impish",
+      "increased": "Defense",
+      "decreased": "Sp. Atk",
+      "mint": "impish-mint"
+    },
+    {
+      "name": "bashful",
+      "title": "Bashful",
+      "increased": null,
+      "decreased": null,
+      "mint": "serious-mint"
+    },
+    {
+      "name": "careful",
+      "title": "Careful",
+      "increased": "Sp. Def",
+      "decreased": "Sp. Atk",
+      "mint": "careful-mint"
+    },
+    {
+      "name": "rash",
+      "title": "Rash",
+      "increased": "Sp. Atk",
+      "decreased": "Sp. Def",
+      "mint": "rash-mint"
+    },
+    {
+      "name": "jolly",
+      "title": "Jolly",
+      "increased": "Speed",
+      "decreased": "Sp. Atk",
+      "mint": "jolly-mint"
+    },
+    {
+      "name": "naughty",
+      "title": "Naughty",
+      "increased": "Attack",
+      "decreased": "Sp. Def",
+      "mint": "naughty-mint"
+    },
+    {
+      "name": "lax",
+      "title": "Lax",
+      "increased": "Defense",
+      "decreased": "Sp. Def",
+      "mint": "lax-mint"
+    },
+    {
+      "name": "quirky",
+      "title": "Quirky",
+      "increased": null,
+      "decreased": null,
+      "mint": "serious-mint"
+    },
+    {
+      "name": "naive",
+      "title": "Naive",
+      "increased": "Speed",
+      "decreased": "Sp. Def",
+      "mint": "naive-mint"
+    },
+    {
+      "name": "brave",
+      "title": "Brave",
+      "increased": "Attack",
+      "decreased": "Speed",
+      "mint": "brave-mint"
+    },
+    {
+      "name": "relaxed",
+      "title": "Relaxed",
+      "increased": "Defense",
+      "decreased": "Speed",
+      "mint": "relaxed-mint"
+    },
+    {
+      "name": "quiet",
+      "title": "Quiet",
+      "increased": "Sp. Atk",
+      "decreased": "Speed",
+      "mint": "quiet-mint"
+    },
+    {
+      "name": "sassy",
+      "title": "Sassy",
+      "increased": "Sp. Def",
+      "decreased": "Speed",
+      "mint": "sassy-mint"
+    },
+    {
+      "name": "serious",
+      "title": "Serious",
+      "increased": null,
+      "decreased": null,
+      "mint": "serious-mint"
+    }
+  ]
+}

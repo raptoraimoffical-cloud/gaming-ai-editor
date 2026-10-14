@@ -1,0 +1,24 @@
+import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import crypto from 'node:crypto';
+import {createBackend,root} from '../electron/backend.mjs';
+import {createReviewRenderer} from '../electron/review-renderer.mjs';
+import {auditEngagement} from '../electron/engagement-plan.mjs';
+import {visibleRanges} from '../electron/layer-visibility.mjs';
+
+const folder=path.join(root,'workspace/source-picture-story-check'),work=path.join(folder,'backend-'+Date.now());fs.mkdirSync(work,{recursive:true});
+for(const name of ['library.sqlite','local-ai-settings.json'])fs.copyFileSync(path.join(root,'workspace',name),path.join(work,name));
+for(const name of ['pokemon-cache','transcripts']){const dest=path.join(work,name);fs.mkdirSync(dest,{recursive:true});for(const f of fs.readdirSync(path.join(root,'workspace',name)).filter(f=>f.endsWith('.json')))fs.copyFileSync(path.join(root,'workspace',name,f),path.join(dest,f));}
+const recording='C:/Users/Eli/Downloads/1012 (1).MP3',hash=crypto.createHash('sha256').update(fs.readFileSync(recording)).digest('hex');
+const instructions=fs.readFileSync(path.join(root,'tests/fixtures/eric-rios-required-visuals.txt'),'utf8');
+const b=await createBackend({workspace:work}),review=createReviewRenderer({root,folder,scale:.5});
+try{
+ const voice=await b.importMedia(recording);console.log('Generating a genuinely fresh full edit with the configured trained models and original MP3');
+ const result=await b.generate({voiceId:voice.id,name:'Source picture story live diagnostic',quality:'fast',model:'base.en',device:'cpu',gameSelection:'pokemon',shortStyle:'pokemon-dense',videoMode:'youtube-shorts',selectedMediaIds:[voice.id],editingInstructions:instructions,backgroundMode:'auto',autoReactionGifs:true,autoPokemonCries:false},p=>console.log(p.stage));
+ const layers=result.scenes.flatMap(s=>(s.layers||[]).filter(l=>l.mediaId&&visibleRanges(l,s.start,s.end,s.layers).length).map(l=>({...l,sceneId:s.id}))),pictures=layers.filter(l=>['subject','supporting-image','story-picture','creative-stage-prop','creative-prop','item','nature-mint','type-icon','mechanic-card','moveset-card'].includes(l.role));
+ const sourcePictures=layers.filter(l=>l.role==='creative-stage-prop'),ids=new Set(pictures.map(l=>l.mediaId)),events=new Set(pictures.map(l=>l.mediaId+'/'+l.start.toFixed(2)));
+ fs.writeFileSync(path.join(folder,'diagnostic.json'),JSON.stringify({plans:result.creativePlanningReport,sourceRequests:result.creativeSourceReport,sourceWarnings:result.creativePropWarnings,execution:result.creativeActionReport,inference:result.processingReport.inferenceEvents,required:result.visualInstructionReport,engagement:auditEngagement(result)},null,2));
+ assert.ok(result.processingReport.inferenceEvents.some(e=>e.stage==='quick-story-authoring'&&e.performed&&e.accepted));assert.ok(sourcePictures.length>=6,'Too few planned pictures reached the final timeline: '+sourcePictures.length);assert.ok(ids.size>=8,'Too few distinct real source images: '+ids.size);assert.ok(events.size>=15,'Too few actual image reveals: '+events.size);assert.ok(result.visualInstructionReport.applied.some(a=>a.kind==='image'&&a.name==='Eric Rios'));assert.equal(result.visualInstructionReport.applied.find(a=>a.kind==='group').members.length,6);
+ const chosen=[];for(const l of sourcePictures.sort((a,b)=>a.start-b.start)){if(chosen.some(c=>c.mediaId===l.mediaId)||l.end-l.start<.6)continue;chosen.push(l);if(chosen.length>=6)break;}
+ const frames=[];for(const [i,l] of chosen.entries())frames.push(await review.render(b.hydrate(result),Math.round((l.start+Math.min(.65,(l.end-l.start)*.5))*30),'source-picture-'+i));
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(recording)).digest('hex'),hash);
+ fs.writeFileSync(path.join(folder,'verification.json'),JSON.stringify({freshProductionGeneration:true,actualTrainedInference:true,actualRecording:recording,originalFileUnchanged:true,distinctRealSourceImages:ids.size,imageRevealEvents:events.size,plannedSourcePicturesDelivered:sourcePictures.length,characterActions:result.creativeActionReport.events.filter(e=>e.kind!=='stage-image').length,sourceRequests:result.creativeSourceReport,frames:frames.map(f=>f.path),projectSaved:false,googleApiLiveTested:false,limitations:['Real original cached/published assets and native source endpoints are used. Google API is not configured in the diagnostic workspace.','Density counts describe the delivered timeline, not predicted viewer retention or studio-quality character poses.']},null,2));console.log('PASS fresh full production generation: '+ids.size+' distinct real images, '+events.size+' timed reveals, '+sourcePictures.length+' planned source pictures delivered; original recording intact; no project saved');
+}finally{await review.close();b.close();}

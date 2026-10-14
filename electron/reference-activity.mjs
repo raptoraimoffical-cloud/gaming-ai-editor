@@ -1,0 +1,25 @@
+// Observations from the user's local reference films, not directions embedded
+// in those films and not measured audience-retention statistics.
+export const REFERENCE_ACTIVITY={
+ version:2,
+ references:[
+  {id:'xOPvJql78OA',name:'Diabolical strategy',observations:[{start:0,end:4.5,grammar:'Anonymous setup, trophy payoff, glints and coordinated entrances.'},{start:10,end:24.8,grammar:'Keep the actors while a published move/ability image and a literal accuracy illustration explain the interaction.'},{start:37,end:43,grammar:'Actor above, partner below, source evidence between them; evidence changes while the cast stays.'},{start:44,end:145,grammar:'Battle proof plus the supplied speaker reaction; action footage already provides continuous motion.'}]},
+  {id:'Nstw1MbZN44',name:'Champions guide',observations:[{start:0,end:2.7,grammar:'Phone and exact logo arrive together; the background moves quietly.'},{start:12,end:34.5,grammar:'Build the actual named team around the lead, then make a purposeful transformation.'},{start:55,end:61,grammar:'A lead character, actual stats/ability evidence, and a clock coexist; reveal each detail when spoken.'}]},
+  {id:'L8vnRyKN2oI',name:'Charizard villain arc',observations:[{start:0,end:8.3,grammar:'One continuing lead; crown, incoming threats and weather play the words as a miniature scene.'},{start:9,end:18.6,grammar:'The team assembles around that lead; set and cast maintain continuity.'},{start:18.9,end:30.1,grammar:'A narrated reversal changes the environment and character performance; hold the final payoff.'}]},
+  {id:'H7Ui71vRA5k',name:'Mega Sceptile setup',observations:[{start:0,end:5,grammar:'An immediate transformation/action hook using available battle footage.'},{start:26,end:32,grammar:'Keep readable ability evidence still while the lead, electric accent and stat-rise response act around it.'},{start:47,end:71,grammar:'Alternate genuine battle proof with partner, item, nature and stat explanations.'}]},
+  {id:'This-Move-Changes',name:'Trick Room move explainer',observations:[{start:0,end:9.5,grammar:'A real move image and emblem establish the hook, then two actors visibly exchange turn order. Rotate the relevant logo to act out upside down.'},{start:18.5,end:29,grammar:'Keep one continuing emblem but escalate the claim with a focused aura, then a fast character travels through the scene.'},{start:35,end:54,grammar:'The actual actor and a meaningful stat diagram coexist; zoom into the discussed stat instead of replacing everything with a key-points panel.'},{start:60,end:80,grammar:'Build a grid of relevant Pokemon; silhouettes reveal at the spoken examples. New faces arrive within the same coherent stage.'},{start:93,end:102,grammar:'Keep move evidence and the cast together; crumple the evidence at the narrated reversal, then change the arrangement to explain a different team mode.'},{start:115,end:130,grammar:'Repeat a useful move reference with a new emphasis or effect, then assemble and reveal the next relevant ensemble.'},{start:130,end:148.8,grammar:'Hold supplied speaker and genuine gameplay evidence, with a related recommendation card only at the closing call to action.'}]}
+ ],
+ rules:[
+  'Compose concurrent visual lanes: the continuing lead, one or two relevant support/evidence pictures, and a small compatible motion or reaction. A new card must not erase the lead.',
+  'Dense explanations often need a meaningful event every 1–2 seconds and 2–4 simultaneous foreground elements. Count real pictures and performances, not captions, shadows, background dots or idle zooms.',
+  'Let source evidence stay readable while another actor or separate prop moves. One object gets one motion at a time; independent lanes may overlap.',
+  'Use setup, anticipation, action and payoff. The lead notices a new prop, a partner reacts to the lead, a failed plan gets a short visual letdown. Humor must follow the actual premise.',
+  'Preserve a recurring scene and lead across connecting sentences. A supporting opponent leaves after its part; an explained team can stay together.',
+  'Only named/resolved characters and actual narration facts may appear. Source arbitrary useful props/GIFs through Google; never redraw move/ability/type information or invent numbers.',
+  'Use available uploaded battle/speaker footage as proof; do not pretend to have footage that was not supplied. Complete actions, useful comparisons and final punchlines can hold.',
+  'Sound follows phases: pop on arrival, short swoosh on travel, game click on evidence or selection, contact at the hit and a small payoff sound. Avoid one repeated sound on every ordinary word.'
+ ],
+ target:{foregroundElements:[2,4],meaningfulEventSeconds:[1,2],teamLimit:6},
+ limitations:['These are manually inspected editing patterns, not isolated SFX counts, exact edit counts, model fine-tuning or measured retention.']
+};
+export function referenceActivityBrief(){return {version:REFERENCE_ACTIVITY.version,target:REFERENCE_ACTIVITY.target,rules:REFERENCE_ACTIVITY.rules};}

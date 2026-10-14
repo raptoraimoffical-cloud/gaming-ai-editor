@@ -1,0 +1,25 @@
+const {app,BrowserWindow,ipcMain}=require('electron');const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
+app.whenReady().then(async()=>{
+ const folder=path.join(__dirname,'../workspace/pokemon-smoke');const backend=await (await import('../electron/backend.mjs')).createBackend({workspace:path.join(folder,'library')});
+ ipcMain.handle('library',()=>backend.library());ipcMain.handle('open',()=>backend.hydrate(JSON.parse(fs.readFileSync(path.join(folder,'project.gaming.json'),'utf8'))));
+ ipcMain.handle('pokemon-search',(_,q)=>backend.pokemonSearch(q));ipcMain.handle('pokemon-info',(_,n)=>backend.pokemonInfo(n));ipcMain.handle('pokemon-asset',(_,n)=>backend.pokemonAsset(n));
+ const win=new BrowserWindow({show:true,width:1500,height:980,webPreferences:{backgroundThrottling:false,preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true,nodeIntegration:false}});
+ win.webContents.on('console-message',event=>console.log('Renderer:',event.message));
+ await win.loadFile(path.join(__dirname,'../dist/index.html'));
+ const evalJS=async code=>{try{return await win.webContents.executeJavaScript(code,true);}catch(e){console.error('Failed desktop step:',code);console.log('Playback diagnostics:',await win.webContents.executeJavaScript(`({text:document.querySelector('.preview')?.innerText,buttons:Array.from(document.querySelectorAll('.preview button')).map(b=>b.getAttribute('aria-label')),media:Array.from(document.querySelectorAll('audio,video')).map(a=>({src:a.src,paused:a.paused,time:a.currentTime,ready:a.readyState,error:a.error?.message}))})`));throw e;}};
+ await evalJS(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('header button')){clearInterval(t);resolve();}else if(++n>100){clearInterval(t);reject(Error('UI timeout'));}},100);})`);
+ await evalJS(`Array.from(document.querySelectorAll('header button')).find(b=>b.textContent==='Open project').click()`);
+ await evalJS(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{const c=document.querySelector('.preview canvas');if(c&&c.width>0){const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;if(d.some((v,i)=>i%4===3&&v>0)){clearInterval(t);resolve();}}if(++n>150){clearInterval(t);reject(Error('Sprite did not draw in preview'));}},100);})`);
+ const frames=await evalJS(`(async()=>{const c=document.querySelector('.preview canvas');const before=c.toDataURL();const buttons=Array.from(document.querySelectorAll('.preview button'));const play=buttons.find(b=>b.getAttribute('aria-label')==='Play video');if(!play)throw Error('Play button missing');play.click();return await new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{const canvas=document.querySelector('.preview canvas');if(canvas&&before!==canvas.toDataURL()){clearInterval(t);document.querySelector('.preview button[aria-label="Pause video"]')?.click();resolve({changed:true,name:document.querySelector('[data-pokemon]')?.getAttribute('data-pokemon')});}else if(++n>50){clearInterval(t);reject(Error('GIF did not advance after playback/buffering'));}},100);});})()`);
+ assert.equal(frames.name,'charizard');assert.equal(frames.changed,true,'Original GIF did not advance in the Player');
+ fs.writeFileSync(path.join(folder,'desktop-preview.png'),(await win.webContents.capturePage()).toPNG());
+ await evalJS(`Array.from(document.querySelectorAll('header button')).find(b=>b.textContent==='Pokémon Asset Library').click()`);
+ const result=await evalJS(`(async()=>{const results=await window.pokemon.search('charizard');const asset=await window.pokemon.asset('charizard-mega-y');return {results:results.map(r=>r.name),formId:asset.pokemon.formId,animated:asset.pokemon.animated};})()`);
+ assert.ok(result.results.includes('charizard-mega-y'));assert.equal(result.formId,10035);assert.equal(result.animated,true);
+ await evalJS(`document.querySelector('.pokemon-search form').requestSubmit()`);
+ await evalJS(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{const b=Array.from(document.querySelectorAll('.pokemon-results button')).find(b=>b.textContent==='charizard-mega-y');if(b){clearInterval(t);b.click();resolve();}else if(++n>100){clearInterval(t);reject(Error('Search timeout'));}},100);})`);
+ await evalJS(`new Promise((resolve,reject)=>{let n=0;const t=setInterval(()=>{if(document.querySelector('.sprite-preview img')?.complete&&document.body.innerText.includes('API form ID 10035')){clearInterval(t);resolve();}else if(++n>100){clearInterval(t);reject(Error('Asset preview timeout'));}},100);})`);
+ await new Promise(r=>setTimeout(r,300));fs.writeFileSync(path.join(folder,'asset-library.png'),(await win.webContents.capturePage()).toPNG());
+ console.log('Verified visible desktop, advancing GIF preview, exact Mega Y search/form selection.',JSON.stringify(result));
+ win.destroy();backend.close();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});

@@ -1,0 +1,38 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createBackend,root,run} from '../electron/backend.mjs';
+import {directVisuals} from '../electron/visual-director.mjs';
+import {addGameLogoLayers} from '../electron/pokemon-game-assets.mjs';
+import {automaticSounds} from '../electron/automatic-sounds.mjs';
+import {createAudioBed} from '../electron/audio-bed.mjs';
+const folder=path.join(root,'workspace/game-media-check');fs.mkdirSync(folder,{recursive:true});
+const b=await createBackend();
+try{
+ const games=await b.pokemonGames.games();
+ const emerald=await b.pokemonGames.logo(games.find(g=>g.name==='Pokémon Emerald'));
+ assert.ok(emerald.width>100,'Older game logo must be a real image');
+ const archive=await b.pokemonGames.archive({query:'pikachu',kind:'default'});
+ const sprite=await b.pokemonGames.download(archive.files[0]);assert.ok(sprite.width>0);
+ const voiceFile=path.join(folder,'silence.wav');
+ await run('ffmpeg',['-v','error','-y','-f','lavfi','-i','anullsrc=r=48000:cl=mono','-t','4',voiceFile]);
+ const voice=await b.importMedia(voiceFile,{license:'Original test recording',tags:'test voice'});
+ const words='Now Pokemon Champions wins then Pokemon Showdown appears'.split(' ').map((text,i)=>({text,start:i*.45,end:i*.45+.4}));
+ let p={id:'game-media-check',name:'Game logos and audible effects',format:'vertical',fps:30,duration:4,voiceId:voice.id,media:[voice],scenes:[{id:'s',start:0,end:4,text:words.map(w=>w.text).join(' '),title:'Game comparison',words,kind:'story',reaction:{intent:'news',theme:'battle',entities:[],rankings:[],metrics:[]}}],autoSoundEffects:true,captionStyle:{enabled:false}};
+ p=await b.pokemonGames.attach(p);
+ assert.deepEqual(p.gameAssetWarnings,[]);
+ p=addGameLogoLayers(directVisuals(p));
+ const sounds=createAudioBed(path.join(folder,'audio')).map(m=>b.updateMedia(m));p=automaticSounds(p,sounds);
+ assert.equal(p.scenes[0].layers.filter(l=>l.role==='game-logo').length,2);
+ assert.ok(p.scenes[0].layers.some(l=>l.role==='background'&&l.mediaId===p.scenes[0].gameBackgroundId));
+ assert.ok(p.soundEffects.length>=2);
+ fs.writeFileSync(path.join(folder,'project.gaming.json'),JSON.stringify(p,null,2));
+ const result=await b.render(p,path.join(folder,'game-media.mp4'));
+ const audioFile=path.join(folder,'mixed.f32');await run('ffmpeg',['-v','error','-y','-i',result.output,'-vn','-ac','1','-ar','48000','-f','f32le',audioFile]);
+ const bytes=fs.readFileSync(audioFile);let sum=0;for(let i=0;i<bytes.length;i+=4)sum+=bytes.readFloatLE(i)**2;
+ const rms=Math.sqrt(sum/(bytes.length/4));assert.ok(rms>.0001,'Automatic effects must be audible in the encoded MP4');
+ await run('ffmpeg',['-v','error','-y','-ss','1','-i',result.output,'-frames:v','1',path.join(folder,'frame.png')]);
+ const evidence={...result,logos:p.scenes[0].gameLogos,background:p.scenes[0].gameBackgroundId,soundEffects:p.soundEffects,audioRms:rms,championsSprite:sprite.originalUrl,olderGameLogo:emerald.originalUrl};
+ fs.writeFileSync(path.join(folder,'verification.json'),JSON.stringify(evidence,null,2));
+ console.log('PASS actual source logos, Champions sprite, real background, timed logos and audible MP4 effects',JSON.stringify(evidence));
+}finally{b.close();}

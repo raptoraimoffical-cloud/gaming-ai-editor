@@ -1,0 +1,5232 @@
+{
+  "sentences": [
+    {
+      "text": "pokemon uses move on pokemon",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon threatens pokemon with move",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon can one shot pokemon",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon attacks pokemon and the target recoils",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon checks pokemon with move",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon knocks out pokemon",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon fires a beam at pokemon",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon counters pokemon with this attack",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon hits both opponents",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is not affected by the incoming move",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon strikes pokemon with a physical move",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon shoots move towards pokemon",
+      "label": "battle",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "move is one of the best moves",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "here is how move works",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this move reverses the turn order",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "move is useful for several pokemon",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "which pokemon learn this move",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the move has great distribution",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this ability changes the battle rules",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "let me explain what this move does",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "move has this base power and accuracy",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "a general guide to move",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this move is important for team building",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "many pokemon can learn this attack",
+      "label": "move-explainer",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon uses move to raise its attack",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon gets a stat boost",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon boosts its special attack",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon charges up before attacking",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon sets up with move",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon raises its stats",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is getting stronger",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon prepares a powerful attack",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon increases its speed",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon uses move and doubles its speed",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon has time to set up",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon activates an offensive boost",
+      "label": "setup",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon and pokemon are good together",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these pokemon have great synergy",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon supports its partner pokemon",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon protects pokemon with redirection",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon pairs well with pokemon",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these two pokemon complement each other",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon covers its partner weakness",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon enables pokemon to attack safely",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon works alongside pokemon",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon helps its teammate",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these partners form a strong combination",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon keeps pokemon safe",
+      "label": "pair",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person won the tournament",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person finished undefeated",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person entered the regional",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person is the player behind this strategy",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person made this team",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person is the champion",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person said this in an interview",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person revealed the winning team",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person finished with no losses",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person defeated the other players",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person uploaded this explanation",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person lifted the trophy",
+      "label": "person",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is number one",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon takes first place",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon became the best ranked choice",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon dethroned pokemon",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon rose to the top",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is the tournament top pick",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon ranks above pokemon",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is the highest ranked threat",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon claims the crown",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is the strongest in this ranking",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon was crowned the winner",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon drops to second place",
+      "label": "rank",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "rain falls across the battlefield",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon sets up rain",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "snow covers the arena",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon battles in the rain",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the weather turns sunny",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "a storm begins during the battle",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon changes the weather to snow",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "sunlight powers up the team",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "wind rushes across the allied side",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon brings rain to the field",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "fog covers the battle area",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the battlefield is frozen with snow",
+      "label": "weather",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "here is the complete team",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these six pokemon form the roster",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pause here to copy the build",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "show the full team and its items",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this is the exact team he used",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "all six pokemon share these roles",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the team has three support pokemon",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the roster contains six pokemon",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these pokemon make up the tournament team",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "copy these moves items and stat points",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "all of the team members are shown together",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the whole roster is ready for battle",
+      "label": "team",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this is an interesting story",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "there is more to this than it seems",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the next part explains the idea",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "at first it looks ordinary",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this is not about a battle",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "one pokemon leaves and a new one comes",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the captions already explain the ordinary number",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "do not add unrelated pictures",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "hold the useful explanation",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "we need to look at the context",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "there is nothing new to reveal yet",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "this is the opening promise",
+      "label": "neutral",
+      "split": "train",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon launches move into pokemon",
+      "label": "battle",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon destroys pokemon with a single hit",
+      "label": "battle",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is threatening its opponent with move",
+      "label": "battle",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon takes the incoming attack and flinches",
+      "label": "battle",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "let us look at the mechanics of move",
+      "label": "move-explainer",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "which competitive pokemon get access to move",
+      "label": "move-explainer",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "move is an excellent option in general",
+      "label": "move-explainer",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "a breakdown of this move for any team",
+      "label": "move-explainer",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon powers up its special attack",
+      "label": "setup",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon uses move to increase its stats",
+      "label": "setup",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon gains a speed boost",
+      "label": "setup",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon can use the opening to set up",
+      "label": "setup",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is a perfect partner for pokemon",
+      "label": "pair",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these two have fantastic synergy",
+      "label": "pair",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon supports pokemon by drawing attacks away",
+      "label": "pair",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon and pokemon work well as a pair",
+      "label": "pair",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person took the title without losing",
+      "label": "person",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person is the winning competitor",
+      "label": "person",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person talked about their team",
+      "label": "person",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person won every recorded match",
+      "label": "person",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is the top ranked option",
+      "label": "rank",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon takes the number one spot",
+      "label": "rank",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon knocked the old king off the throne",
+      "label": "rank",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon finishes in first place",
+      "label": "rank",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "rain starts falling around pokemon",
+      "label": "weather",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon starts a snowstorm",
+      "label": "weather",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "sun shines over this battlefield",
+      "label": "weather",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the arena fills with mist",
+      "label": "weather",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the entire roster appears here",
+      "label": "team",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pause to inspect all six builds",
+      "label": "team",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "show every member of the full team",
+      "label": "team",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "here are the team members with their sets",
+      "label": "team",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the story continues from here",
+      "label": "neutral",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "keep that explanation on the screen",
+      "label": "neutral",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the ordinary count needs no graphic",
+      "label": "neutral",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "context matters for this sentence",
+      "label": "neutral",
+      "split": "development",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon connects with an attack against pokemon",
+      "label": "battle",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon fires move at both targets",
+      "label": "battle",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon knocks its rival down",
+      "label": "battle",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "here is a general explanation of move mechanics",
+      "label": "move-explainer",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "these pokemon have access to move",
+      "label": "move-explainer",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "what exactly does move do",
+      "label": "move-explainer",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon boosts its defenses before fighting",
+      "label": "setup",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon increases its attack with move",
+      "label": "setup",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon uses the turn to charge up",
+      "label": "setup",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon provides support for its teammate",
+      "label": "pair",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is great alongside pokemon",
+      "label": "pair",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "partners cover each other weaknesses",
+      "label": "pair",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person is the player who created this build",
+      "label": "person",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person won the championship with this team",
+      "label": "person",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "person finished the event undefeated",
+      "label": "person",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon climbed into first place",
+      "label": "rank",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon has the highest rank of them all",
+      "label": "rank",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "pokemon is the king of this ranking",
+      "label": "rank",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "snow is falling across the arena",
+      "label": "weather",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "rain changes this battlefield",
+      "label": "weather",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "sunlight shines on the field",
+      "label": "weather",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the six members of this team appear",
+      "label": "team",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "hold the full builds so everyone can pause to copy",
+      "label": "team",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the entire team with held items",
+      "label": "team",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "there is another part to this story",
+      "label": "neutral",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "the explanation deserves a longer hold",
+      "label": "neutral",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    },
+    {
+      "text": "ordinary counts are just words in the captions",
+      "label": "neutral",
+      "split": "held-out",
+      "provenance": "Curated general paraphrase of user reference editing patterns"
+    }
+  ],
+  "preferences": [
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.08,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.8533392338263732,
+        0.05,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.0,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        1.0,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.25,
+        0.9,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.8533392338263732,
+        0.3,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.9,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 0,
+      "preferred": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.8551748410201738,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.7899904802032143
+      ],
+      "rejected": [
+        0.8533392338263732,
+        0.8734384762038891,
+        0.5779749198573753,
+        0.04,
+        0.9647170563282395,
+        0.0,
+        0.0899117018331807,
+        0.860529981494562,
+        0.012832212884320956,
+        0.7203041419793033,
+        1.0,
+        0.6017518849256442,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.08,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.922093341945143,
+        0.05,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.922093341945143,
+        0.930336720779084,
+        0.0,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        1.0,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.25,
+        0.9,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.922093341945143,
+        0.3,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.9,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 1,
+      "preferred": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.8679487795989614,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.8331553855396336
+      ],
+      "rejected": [
+        0.922093341945143,
+        0.930336720779084,
+        0.6283149545330124,
+        0.04,
+        0.9986740474575653,
+        0.0,
+        0.0012151531865859056,
+        0.9226311092766792,
+        0.06062933149720826,
+        0.7691135357224781,
+        1.0,
+        0.5583443151977872,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.08,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.9066905000356362,
+        0.05,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.0,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        1.0,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.25,
+        0.9,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.9066905000356362,
+        0.3,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.9,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 2,
+      "preferred": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.8660015143599852,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.8059618694927342
+      ],
+      "rejected": [
+        0.9066905000356362,
+        0.8658808706634591,
+        0.6437946415080852,
+        0.04,
+        0.9872376372907624,
+        0.0,
+        0.0,
+        0.9549370826892128,
+        0.06586325409903801,
+        0.8072408736877469,
+        0.9988615789977647,
+        0.6275354569456004,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.08,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.8720588936091489,
+        0.05,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.0,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        1.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.25,
+        0.9,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.8720588936091489,
+        0.3,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.9,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 3,
+      "preferred": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.8602769130943786,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.8597401853617744
+      ],
+      "rejected": [
+        0.8720588936091489,
+        0.8868843670028003,
+        0.6769986265882719,
+        0.04,
+        0.9425427923865073,
+        0.052371388908169295,
+        0.009281418606208645,
+        0.874947913492704,
+        0.0,
+        0.7610403825907189,
+        0.9733613271144838,
+        0.6139886150905649,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.08,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.8749551115893021,
+        0.05,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.0,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        1.0,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.25,
+        0.9,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.8749551115893021,
+        0.3,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.9,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 4,
+      "preferred": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.8733137925656365,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.8222073037752626
+      ],
+      "rejected": [
+        0.8749551115893021,
+        0.7926135151201273,
+        0.5628446700824233,
+        0.04,
+        0.9449906075626295,
+        0.008594667694642424,
+        0.0,
+        0.8992267099209343,
+        0.024215019068975732,
+        0.7704672211771925,
+        1.0,
+        0.6940462560611139,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.08,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.9106259889730829,
+        0.05,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.0,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        1.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.25,
+        0.9,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.9106259889730829,
+        0.3,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.9,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 5,
+      "preferred": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.9148017357245912,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.8453260178521511
+      ],
+      "rejected": [
+        0.9106259889730829,
+        0.7607523882789342,
+        0.5972864548774401,
+        0.04,
+        0.9848339982943846,
+        0.022837442445581994,
+        0.0013215855305091255,
+        0.984671867989032,
+        0.0,
+        0.763207033381279,
+        0.9954534312142777,
+        0.5654947464284965,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.08,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.8138280591086094,
+        0.05,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.0,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        1.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.25,
+        0.9,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.8138280591086094,
+        0.3,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.9,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 6,
+      "preferred": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.8647542624608615,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.8212137055296377
+      ],
+      "rejected": [
+        0.8138280591086094,
+        0.8283026367840886,
+        0.7216092150623966,
+        0.04,
+        0.9680283350096784,
+        0.0,
+        0.006680328073671127,
+        0.9057731067397381,
+        0.0,
+        0.8037339644775751,
+        0.9389656916570701,
+        0.6016979504980563,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.08,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.9540907730267705,
+        0.05,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.0,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        1.0,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        0.25,
+        0.9,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.9540907730267705,
+        0.3,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.9,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 7,
+      "preferred": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.8547262592481218,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.8997100511654047
+      ],
+      "rejected": [
+        0.9540907730267705,
+        0.8110154017541877,
+        0.7078307802501056,
+        0.04,
+        1.0,
+        0.026824948327569615,
+        0.0,
+        0.8646553044259994,
+        0.051201437784892855,
+        0.7566647417360514,
+        1.0,
+        0.5881130541932468,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.08,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.9056771305732811,
+        0.05,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.0,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        1.0,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        0.25,
+        0.9,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.9056771305732811,
+        0.3,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.9,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 8,
+      "preferred": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.8575566715969624,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.8380945733608189
+      ],
+      "rejected": [
+        0.9056771305732811,
+        0.8421011705117947,
+        0.6523036704770733,
+        0.04,
+        1.0,
+        0.07689726582835524,
+        0.04899563604807154,
+        0.8902437310301348,
+        0.015637294126351627,
+        0.7732298077229685,
+        0.9738155384514326,
+        0.6447880776868221,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.08,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.9458229657023234,
+        0.05,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.0,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        1.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.25,
+        0.9,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.9458229657023234,
+        0.3,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.9,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 9,
+      "preferred": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.8507420131453315,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.7837060244930758
+      ],
+      "rejected": [
+        0.9458229657023234,
+        0.8690497710640067,
+        0.6049319860183016,
+        0.04,
+        0.938339067042428,
+        0.0518319311053262,
+        0.055015868647402856,
+        0.8438865129518635,
+        0.0,
+        0.8657630023210667,
+        1.0,
+        0.5797960391805952,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.08,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.8976342113914535,
+        0.05,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.0,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        1.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        0.25,
+        0.9,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.8976342113914535,
+        0.3,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.9,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 10,
+      "preferred": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.8785380714082884,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.7516173597842981
+      ],
+      "rejected": [
+        0.8976342113914535,
+        0.8776111628732908,
+        0.6082039327212291,
+        0.04,
+        1.0,
+        0.0,
+        0.0,
+        0.9666839720340569,
+        0.0,
+        0.7368137701683242,
+        0.9836104398113994,
+        0.5942499061074301,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.08,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.9083427576901203,
+        0.05,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.0,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        1.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        0.25,
+        0.9,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.9083427576901203,
+        0.3,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.9,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 11,
+      "preferred": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.8767155133040877,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.7811501868061518
+      ],
+      "rejected": [
+        0.9083427576901203,
+        0.832958747781574,
+        0.616943953291936,
+        0.04,
+        1.0,
+        0.0,
+        0.0,
+        0.9094976175852717,
+        0.0,
+        0.7533287401677536,
+        1.0,
+        0.5374556169753573,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.08,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.8771215931013662,
+        0.05,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.0,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        1.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.25,
+        0.9,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.8771215931013662,
+        0.3,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.9,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 12,
+      "preferred": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.8325172810846889,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.7904320475434441
+      ],
+      "rejected": [
+        0.8771215931013662,
+        0.8918276037841689,
+        0.7173668743116495,
+        0.04,
+        0.9951197791573224,
+        0.0,
+        0.0,
+        0.8852690048248434,
+        0.0,
+        0.8162468340175646,
+        0.9622222590378054,
+        0.5239962100288156,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.08,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.9155551543360531,
+        0.05,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.0,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        1.0,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.25,
+        0.9,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.9155551543360531,
+        0.3,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.9,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 13,
+      "preferred": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.8808304795585076,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.8020580381101642
+      ],
+      "rejected": [
+        0.9155551543360531,
+        0.8321565091773743,
+        0.6872238224191123,
+        0.04,
+        0.9672331643405223,
+        0.0,
+        0.03913389396199632,
+        0.8862972004838621,
+        0.05556687964703363,
+        0.7951640230206137,
+        0.9755865893910924,
+        0.5833063021793534,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.08,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "defect": "tiny-subject",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.8778428258484835,
+        0.05,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "defect": "unreadable-evidence",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.0,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        1.0,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "defect": "empty-hook",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.25,
+        0.9,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.8778428258484835,
+        0.3,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.9,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "defect": "clutter",
+      "split": "train"
+    },
+    {
+      "family": 14,
+      "preferred": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.7673726002560167,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.770211835907041
+      ],
+      "rejected": [
+        0.8778428258484835,
+        0.8656970669303843,
+        0.588641192555898,
+        0.04,
+        0.9905987066876766,
+        0.06452870581706535,
+        0.0,
+        0.9098904574436741,
+        0.040561468745311385,
+        0.8340526932431211,
+        1.0,
+        0.49244427843361427,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "train"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.08,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "defect": "tiny-subject",
+      "split": "held-out"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.9132846605122513,
+        0.05,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "defect": "unreadable-evidence",
+      "split": "held-out"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.0,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        1.0,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "defect": "empty-hook",
+      "split": "held-out"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        0.25,
+        0.9,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "held-out"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.9132846605122513,
+        0.3,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.9,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "defect": "clutter",
+      "split": "held-out"
+    },
+    {
+      "family": 15,
+      "preferred": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.7882972016488987,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.837917306063727
+      ],
+      "rejected": [
+        0.9132846605122513,
+        0.9163920123969278,
+        0.6702824757591076,
+        0.04,
+        1.0,
+        0.0,
+        0.038673291488131444,
+        0.9423540971847151,
+        0.00438117774665192,
+        0.7598995101097121,
+        0.9656545443118723,
+        0.5775226696821223,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.08,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "defect": "tiny-subject",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.8839641582971796,
+        0.05,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "defect": "unreadable-evidence",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.0,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        1.0,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "defect": "empty-hook",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.25,
+        0.9,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.8839641582971796,
+        0.3,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.9,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "defect": "clutter",
+      "split": "held-out"
+    },
+    {
+      "family": 16,
+      "preferred": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.7593157484749266,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.7841935531134558
+      ],
+      "rejected": [
+        0.8839641582971796,
+        0.81778233858427,
+        0.5932180301834266,
+        0.04,
+        0.9026051247660781,
+        0.09359159884844084,
+        0.08061721660356104,
+        0.8798712001669655,
+        0.009318380325902754,
+        0.8145369403854051,
+        0.9386500705462274,
+        0.6050530216879453,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.08,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "defect": "tiny-subject",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.9432652005823543,
+        0.05,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "defect": "unreadable-evidence",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.0,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        1.0,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "defect": "empty-hook",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        0.25,
+        0.9,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.9432652005823543,
+        0.3,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.9,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "defect": "clutter",
+      "split": "held-out"
+    },
+    {
+      "family": 17,
+      "preferred": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.8723065673810994,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.8098428743418182
+      ],
+      "rejected": [
+        0.9432652005823543,
+        0.8596563939234435,
+        0.6119188507887988,
+        0.04,
+        1.0,
+        0.000671713987231057,
+        0.03370985246185794,
+        0.9596551317061458,
+        0.02892314410978165,
+        0.8767904181766893,
+        1.0,
+        0.6037188369038922,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.08,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "defect": "tiny-subject",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.8808558571054351,
+        0.05,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "defect": "unreadable-evidence",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.0,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        1.0,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "defect": "empty-hook",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        0.25,
+        0.9,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.8808558571054351,
+        0.3,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.9,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "defect": "clutter",
+      "split": "held-out"
+    },
+    {
+      "family": 18,
+      "preferred": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.8575485829327477,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.799522373299653
+      ],
+      "rejected": [
+        0.8808558571054351,
+        0.8880262526934014,
+        0.5922230098815258,
+        0.04,
+        1.0,
+        0.04681758235464895,
+        0.0861601684966098,
+        0.8654220439954597,
+        0.038815918229487004,
+        0.869629797212008,
+        1.0,
+        0.5607016424119208,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.08,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "defect": "tiny-subject",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.8823600340177469,
+        0.05,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "defect": "unreadable-evidence",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.0,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        1.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "defect": "empty-hook",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        0.25,
+        0.9,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "defect": "irrelevant-decoration",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.8823600340177469,
+        0.3,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.9,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "defect": "clutter",
+      "split": "held-out"
+    },
+    {
+      "family": 19,
+      "preferred": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.8354415494171865,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.8112882350392583
+      ],
+      "rejected": [
+        0.8823600340177469,
+        0.9118306819873173,
+        0.6618757443954869,
+        0.04,
+        1.0,
+        0.018490061925595963,
+        0.0,
+        0.8349361687184494,
+        0.0,
+        0.8199741249625778,
+        1.0,
+        0.5869735401901124,
+        0.08
+      ],
+      "defect": "static-slideshow",
+      "split": "held-out"
+    }
+  ]
+}

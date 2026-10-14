@@ -1,0 +1,24 @@
+const {app,BrowserWindow,ipcMain}=require('electron');
+const path=require('node:path');
+app.whenReady().then(async()=>{
+ await require('./desktop-fixtures.cjs').registerProjectServices();
+ ipcMain.handle('library',()=>[]);
+ const win=new BrowserWindow({show:false,webPreferences:{preload:path.join(__dirname,'../electron/preload.cjs'),contextIsolation:true}});
+ await win.loadFile(path.join(__dirname,'../dist/index.html'));
+ const read=()=>win.webContents.executeJavaScript(`(()=>{const panel=document.querySelector('[aria-label="Task progress"]'),bar=panel?.querySelector('progress');return panel?{text:panel.innerText,value:bar?.getAttribute('value')}:null;})()`);
+ const emit=async p=>{win.webContents.send('progress',p);await win.webContents.executeJavaScript('new Promise(r=>setTimeout(r,80))');};
+ await emit({jobId:'one',state:'started',label:'Video export',stage:'Preparing video export'});
+ let panel=await read();if(!panel||panel.value!==null||!panel.text.includes('Estimating'))throw Error('Indeterminate progress missing');
+ await emit({jobId:'one',state:'running',stage:'Rendering video',percent:10});
+ await win.webContents.executeJavaScript('new Promise(r=>setTimeout(r,1100))');
+ await emit({jobId:'one',state:'running',stage:'Rendering video',percent:30});
+ panel=await read();if(panel.value!=='30'||!panel.text.includes('remaining in this stage'))throw Error('Measured stage ETA missing');
+ await emit({jobId:'one',state:'running',stage:'Normalizing audio'});
+ panel=await read();if(panel.value!==null||!panel.text.includes('Estimating'))throw Error('Phase ETA did not reset');
+ await emit({jobId:'one',state:'completed'});if(await read())throw Error('Completed panel still visible');
+ await emit({jobId:'two',state:'started',label:'Video generation',stage:'Preparing',estimatedSeconds:90});
+ panel=await read();if(!panel.text.includes('remaining (estimated)')||!panel.text.includes('Elapsed 0s'))throw Error('Historical estimate or timer reset missing');
+ await emit({jobId:'two',state:'failed'});if(await read())throw Error('Failed panel still visible');
+ console.log('PASS desktop indeterminate/determinate progress, measured ETA, historical ETA, phase reset and completion/error cleanup');
+ win.destroy();app.quit();
+}).catch(e=>{console.error(e);app.exit(1);});
